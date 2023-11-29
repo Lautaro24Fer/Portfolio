@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string | null;
+  body: string;
+  state: string | null;
+}
+
+const { title, body, state } = Astro.props;
+---
+
+<article class="card-element">
+  <div class="user-img">
+    <img
+      src="https://avatars.githubusercontent.com/u/109113267?v=4"
+      alt="Jaja it's me"
+    />
+  </div>
+  <div class="user-content">
+    <div class="header">
+      <div class="name-user">
+        <h4>LauFer🌙</h4>
+        <div class="time">2h</div>
+      </div>
+    </div>
+    <div class="main">
+      <p class="text">
+        {body}
+      </p>
+    </div>
+  </div>
+</article>
+
+<style>
+  article.card-element {
+    height: max-content;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    width: 90%;
+    grid-template-rows: 1fr;
+    gap: 1em;
+  }
+  article.card-element div.user-img img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(158, 82, 228);
+  }
+  article.card-element div.user-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  article.card-element div.user-content div.main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  div.user-content div.header,
+  div.header div.name-user {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+</style>

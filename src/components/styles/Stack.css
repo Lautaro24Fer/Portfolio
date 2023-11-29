@@ -1,0 +1,35 @@
+ul.container-stack{
+    list-style: none;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    justify-content: left;
+    padding: 1em 0 0 0;
+}
+
+ul.container-stack li div.header{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+ul.container-stack li div svg{
+    height: 2em;
+    width: 1.4em;
+}
+
+ul.container-stack li.element-html div svg{
+    fill: rgb(239, 121, 4);
+}
+ul.container-stack li.element-css div svg{
+    fill: rgb(4, 102, 239);
+}
+ul.container-stack li.element-js div svg{
+    fill: rgb(239, 231, 4);
+}
+ul.container-stack li.element-react div svg{
+    fill: rgb(4, 176, 239);
+}
+ul.container-stack li.element-node div svg{
+    fill: rgb(0, 211, 21);
+}

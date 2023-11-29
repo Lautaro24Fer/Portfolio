@@ -1,0 +1,121 @@
+---
+// interface Props {
+//   id: string;
+// }
+
+// const { id } = Astro.props;
+
+import Tabs from "./Tabs.astro";
+---
+
+<header>
+  <section class="wallpaper">
+    <img src="../../public/LF_logo1.webp" alt="wallpaper-lf" />
+  </section>
+  <section class="user-info">
+    <article class="header-info">
+      <button id="modeButton">
+        <a
+          href="https://www.linkedin.com/in/lautaro-fernandez-4205aa243/"
+          target="_blank"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+            ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+            ></path></svg
+          >
+        </a>
+      </button>
+    </article>
+    <article class="main-info">
+      <h1>Lautaro Leonel Fernández ⭐</h1>
+      <p>Nothing without passion🙌✨</p>
+      <p>
+        Web Developer with experience actively seeking opportunities. Passionate
+        about coding.
+      </p>
+    </article>
+    <article class="footer-info">
+      <Tabs />
+    </article>
+  </section>
+  <img
+    src="https://avatars.githubusercontent.com/u/109113267?v=4"
+    alt="Lautaro Fernandez"
+    class="user-img"
+  />
+</header>
+<style>
+  header {
+    position: relative;
+    height: 28rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50% 50%;
+  }
+  header section.wallpaper {
+  }
+  header section.wallpaper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (width >= 480px) {
+    header section.wallpaper img {
+      border-radius: 2rem 2rem 0 0;
+    }
+  }
+  header section.user-info {
+  }
+  header section.user-info article.header-info {
+    display: flex;
+    justify-content: end;
+    padding: 1rem 1rem 0 0;
+  }
+  header section.user-info article.header-info button {
+    padding: 0.5rem 0.9rem;
+    border: none;
+    border-radius: 0.9rem;
+    font-weight: bold;
+    background-color: rgb(158, 82, 228);
+    color: var(--color2);
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 2.5em;
+    width: 3.8em;
+  }
+  header section.user-info article.header-info button a {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  header section.user-info article.header-info button a svg {
+    fill: var(--color2);
+    height: 1.8em;
+  }
+  header section.user-info article.main-info {
+    padding: 1.3rem 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  header section.user-info article.footer-info {
+    margin: 0.7rem 0 0 0;
+  }
+  header img.user-img {
+    position: absolute;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color3);
+    left: 4.5em;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>

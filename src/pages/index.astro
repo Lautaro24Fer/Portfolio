@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import CardImage from "../components/CardImage.astro";
+import CardStack from "../components/CardStack.astro";
+---
+
+<Layout title="Home">
+  <div class="feed">
+    <Card
+      title=""
+      body="Hello and welcome to my portfolio. I am very grateful that you have taken the opportunity to explore my work!😉"
+      state=""
+    />
+    <Card
+      title=""
+      body="I am a web developer with a deep love for my craft. I have been programming for a couple of years in various languages such as JavaScript to C#, and I have found a unique passion in frontend development"
+      state=""
+    />
+    <CardStack title="Technology stack" body="" state="" />
+  </div>
+</Layout>
+
+<style>
+  div.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+</style>

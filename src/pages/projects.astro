@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardImage from "../components/CardImage.astro";
+---
+
+<Layout title="Projects">
+  <div class="feed">
+    <CardImage
+      title="Otter"
+      body="Small example of a social network based on the design of Spotify combined with Instagram, featuring a login system (without a database)"
+      state="Stack: HTML, CSS, Javascript vanilla"
+      src="../../public/img-proyects/Otter.webp"
+      href="https://lautaro24fer.github.io/RevDigital-ProyectoFinal/index.html"
+    />
+    <CardImage
+      title="SpotyHub"
+      body="Spotify clone with features such as login (without a database), search functionality utilizing calls to the app's official API, and redirection to the official platform"
+      state="Stack: HTML, CSS, Javascript vanilla, Vite"
+      src="../../public/img-proyects/SpotyHub.webp"
+      href="https://lautaro24fer.github.io/SpotyHub/"
+    />
+    <CardImage
+      title="WalletUI"
+      body="Own cryptocurrency wallet based on online UX/UI designs"
+      state="Stack: HTML, CSS"
+      src="../../public/img-proyects/Wallet.webp"
+      href="https://lautaro24fer.github.io/Laboratorio3-Project1/"
+    />
+    <CardImage
+      title="UI payment"
+      body="UI payment section for a movie streaming platform through Twitter(X)"
+      state="Stack: HTML, CSS"
+      src="../../public/img-proyects/PayUI.webp"
+      href="https://lautaro24fer.github.io/Laboratorio3-Project2/"
+    />
+  </div>
+</Layout>
+
+<style>
+  div.feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+</style>

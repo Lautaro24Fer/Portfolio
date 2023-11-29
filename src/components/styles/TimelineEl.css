@@ -1,0 +1,28 @@
+
+article.timeline-element{
+    display: grid;
+    grid-template-columns: 6rem 4em 6rem;
+    grid-template-rows: max-content;
+}
+
+div.time{
+    text-align: end;
+    align-self: top;
+    padding: .5rem;
+}
+
+div.task{
+    padding: .5rem;
+    align-self: top;
+    text-align:left;
+}
+
+div.logo{
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    background-color: rgb(92, 92, 92);
+    border: 8px solid var(--color2);
+    justify-self: center;
+    z-index: 100;
+}

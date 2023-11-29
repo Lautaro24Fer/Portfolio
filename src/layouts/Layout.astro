@@ -1,0 +1,120 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg" href="../../public/LF_wd2.svg" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <img
+      src="../../public/astro-icon-light.svg"
+      alt="This page was made in Astro"
+      class="astro-img"
+    />
+    <main id="main-id">
+      <Header />
+      <slot />
+      <Footer />
+    </main>
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Arimo&family=Inter:wght@200&family=Manrope:wght@600&family=Montserrat&family=Noto+Sans+Shavian&family=Nunito&family=PT+Sans&family=Quicksand:wght@300&family=Roboto:wght@100&family=Rubik&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Arimo&family=Inter:wght@200&family=Manrope:wght@600&family=Montserrat&family=Noto+Sans+Shavian&family=Nunito&family=PT+Sans&family=Public+Sans:wght@100&family=Quicksand:wght@300&family=Roboto:wght@100&family=Rubik&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--color1);
+        font-family: "Public Sans", sans-serif;
+        display: grid;
+        place-items: center;
+        color: var(--color3);
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+      }
+      body img.astro-img {
+        position: absolute;
+        right: -10%;
+        bottom: -10%;
+        height: 35em;
+      }
+      :root {
+        --color1: rgb(205, 205, 205);
+        --color2: rgb(249, 241, 241);
+        --color3: rgb(26, 26, 26);
+      }
+      .darkMode {
+        --color1: rgb(0, 0, 0);
+        --color2: rgb(43, 43, 43);
+        --color3: white;
+      }
+      main {
+        height: 100%;
+        width: 100%;
+        background-color: var(--color2);
+        box-shadow: -1px 3px 17px -1px rgba(0, 0, 0, 0.53);
+        -webkit-box-shadow: -1px 3px 17px -1px rgba(0, 0, 0, 0.53);
+        -moz-box-shadow: -1px 3px 17px -1px rgba(0, 0, 0, 0.53);
+        padding: 0 0 3em 0;
+        overflow-y: scroll;
+        position: absolute;
+      }
+
+      main::-webkit-scrollbar {
+        display: none;
+      }
+
+      @media (width >= 480px) {
+        main {
+          max-width: 30rem;
+          min-width: 20rem;
+          border-radius: 2rem;
+          /*left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); */
+          height: 95vh;
+          position: absolute;
+        }
+        main::webkit-scrollbar {
+          display: none;
+        }
+      }
+    </style>
+  </body>
+</html>
