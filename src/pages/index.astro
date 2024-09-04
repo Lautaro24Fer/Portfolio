@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/sections/Header.astro";
+import StatsBoard from "../components/sections/StatsBoard.astro";
+import projectsJson from "../util/projects.json";
+import Card from "../components/utils/Card.astro";
+import Formation from "../components/sections/Formation.astro";
+import Tech from "../components/sections/Tech.astro"
+import Footer from "../components/sections/Footer.astro";
+---
+
+<Layout title="LF | Portfolio">
+  <main class="px-24 pb-[20rem] relative pt-5 h-max " id="presentation-section">
+    <Header />
+    <section class="w-full flex pt-[8rem] pb-[4rem]">
+      <section class="w-[50%] flex flex-col gap-7">
+        <h1 class="text-white text-7xl text-left">
+          Lautaro Leonel Fernández - Full Stack Developer
+        </h1>
+        <p class="text-gray-200">
+          I am a young Argentine who, in recent years, has sought to stand out
+          in the web sector with my technical skills, experience in real and
+          academic projects, and university education to secure a place in the
+          industry. Always ready to learn and work with the team.
+        </p>
+        <section class="flex gap-8 z-10">
+          <button id="see-in-gh-btn">
+            See portfolio in GitHub
+          </button>
+        </section>
+      </section>
+    </section>
+    <StatsBoard />
+    <section
+      class="text-white rounded-xl h-min-72 h-max mt-20 mb-20 relative"
+      transition:name="proyect"
+      transition:animate='fade'
+      id="proyects-section"
+    >
+    <h2 class="text-4xl font-bold mb-8">My work</h2>
+      <div class="flex gap-8 flex-wrap justify-between">
+        {
+          projectsJson.map((item) => {
+            return (
+              <Card
+                title={item.name}
+                type={item.type},
+                technologies={item.techStack},
+                state={item.state},
+                localPath={`/proyects/${item.id}`}
+              />
+            );
+          })
+        }
+      </div>
+    </section>
+    <Formation />
+    <Tech />
+    <Footer />
+  </main>
+</Layout>
+<style is:global>
+  .background-blur {
+    border-radius: 15px;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .contact-button-shadow {
+    -webkit-box-shadow: 0px 0px 28px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 28px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 28px -13px rgba(255, 255, 255, 0.75);
+  }
+  .dowloadresume-button-gradient {
+    background: linear-gradient(
+      75deg,
+      rgba(189, 115, 37, 1) 0%,
+      rgba(127, 169, 20, 1) 51%,
+      rgba(20, 169, 150, 1) 94%
+    );
+  }
+  nav ul li {
+    cursor: pointer;
+  }
+  /* From Uiverse.io by portseif */ 
+button#see-in-gh-btn {
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem 1rem 1rem 0;
+}
+
+button:before {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+button:hover:before {
+  background-color: #fff;
+  width: 3rem;
+}
+</style>

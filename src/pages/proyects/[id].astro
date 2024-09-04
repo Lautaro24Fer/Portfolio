@@ -1,0 +1,30 @@
+---
+
+import Layout from "../../layouts/Layout.astro"
+
+export function getStaticPaths() {
+  return [
+    {params: {id: 1}},
+    {params: {id: 2}},
+    {params: {id: 3}},
+    {params: {id: 4}},
+  ];
+}
+
+const { id } = Astro.params;
+---
+
+<Layout title={`LF | proyect ${id}`}>
+    <main class="h-screen">
+      <section transition:name="proyect">
+        Buenos dias familia
+        <a href="/#proyects-section">Volver a la pagina principal</a>
+      </section>
+    </main>
+  </Layout>
+
+  <style>
+    main{
+        color: white;
+    }
+  </style>

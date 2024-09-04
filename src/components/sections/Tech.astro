@@ -1,0 +1,261 @@
+---
+import Html from "../../icons/HtmlIcon.astro"
+import Css from "../../icons/CssIcon.astro"
+import Js from "../../icons/JavascriptIcon.astro"
+import Ts from "../../icons/TypescriptIcon.astro"
+import Next from "../../icons/NextIcon.astro"
+import Angular from "../../icons/AngularIcon.astro"
+import AstroIcon from "../../icons/AstroIcon.astro"
+import Nest from "../../icons/NestIcon.astro"
+import Asp from "../../icons/AspIcon.astro"
+import Terminal from "../../icons/TerminalIcon.astro"
+import Vercel from "../../icons/VercelIcon.astro"
+import MySqlIcon from "../../icons/MySqlIcon.astro"
+import GitIcon from "../../icons/GitIcon.astro"
+import PostgreSql from "../../icons/PosgreSqlIcon.astro"
+import Tailwind from "../../icons/TailwindIcon.astro"
+import CSharp from "../../icons/CSharp.astro"
+---
+<div class="w-full flex justify-center" id="habilities-section">
+  <h2 class="text-4xl font-bold mt-20">My tech stack</h2>
+</div>
+<ul class="wrapper">
+  
+  <li class="icon js">
+    <span class="tooltip">Javascript</span>
+    <Js />
+  </li>
+  <li class="icon ts">
+    <span class="tooltip">Typescript</span>
+    <Ts />
+  </li>
+  <li class="icon next">
+    <span class="tooltip">Next</span>
+    <Next />
+  </li>
+  <li class="icon tail">
+    <span class="tooltip">Tailwind</span>
+    <Tailwind />
+  </li>
+  <li class="icon angular">
+    <span class="tooltip">Angular</span>
+    <Angular />
+  </li>
+  <li class="icon nest">
+    <span class="tooltip">Nest</span>
+    <Nest />
+  </li>
+  <li class="icon net">
+    <span class="tooltip">.NET</span>
+    <Asp />
+  </li>
+  <li class="icon sharp">
+    <span class="tooltip">C#</span>
+    <CSharp />
+  </li>
+  <li class="icon astro">
+    <span class="tooltip">Astro</span>
+    <AstroIcon />
+  </li>
+  <li class="icon mysql">
+    <span class="tooltip">MySQL</span>
+    <MySqlIcon />
+  </li>
+  <li class="icon js postgre">
+    <span class="tooltip">PostgreSQL</span>
+    <PostgreSql />
+  </li>
+  <li class="icon js git">
+    <span class="tooltip">Git</span>
+    <GitIcon />
+  </li>
+  <li class="icon js terminal">
+    <span class="tooltip">Terminal</span>
+    <Terminal />
+  </li>
+  <li class="icon js vercel">
+    <span class="tooltip">Vercel</span>
+    <Vercel />
+  </li>
+</ul>
+
+<style>
+    /* From Uiverse.io by david-mohseni */ 
+.wrapper {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  min-height: max-content;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: transparent;
+  border-radius: 50%;
+  margin: 10px;
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #000000;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .html:hover,
+.wrapper .html:hover .tooltip,
+.wrapper .html:hover .tooltip::before {
+  background: #ffb011;
+  color: #fff;
+}
+
+.wrapper .css:hover,
+.wrapper .css:hover .tooltip,
+.wrapper .css:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .js:hover,
+.wrapper .js:hover .tooltip,
+.wrapper .js:hover .tooltip::before {
+  background: #e4c70e;
+  color: #fff;
+}
+
+.wrapper .ts:hover,
+.wrapper .ts:hover .tooltip,
+.wrapper .ts:hover .tooltip::before {
+  background: #0355b9;
+  color: #fff;
+}
+
+.wrapper .next:hover,
+.wrapper .next:hover .tooltip,
+.wrapper .next:hover .tooltip::before {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.wrapper .tail:hover,
+.wrapper .tail:hover .tooltip,
+.wrapper .tail:hover .tooltip::before {
+  background: #2799e0;
+  color: #fff;
+}
+
+.wrapper .angular:hover,
+.wrapper .angular:hover .tooltip,
+.wrapper .angular:hover .tooltip::before {
+  background: #e20505;
+  color: #fff;
+}
+
+.wrapper .nest:hover,
+.wrapper .nest:hover .tooltip,
+.wrapper .nest:hover .tooltip::before {
+  background: #e52938;
+  color: #fff;
+}
+
+.wrapper .net:hover,
+.wrapper .net:hover .tooltip,
+.wrapper .net:hover .tooltip::before {
+  background: #8a0aa6;
+  color: #fff;
+}
+
+.wrapper .sharp:hover,
+.wrapper .sharp:hover .tooltip,
+.wrapper .sharp:hover .tooltip::before {
+  background: #8a0aa6;
+  color: #fff;
+}
+
+.wrapper .astro:hover,
+.wrapper .astro:hover .tooltip,
+.wrapper .astro:hover .tooltip::before {
+  background: #303030;
+  color: #fff;
+}
+
+.wrapper .mysql:hover,
+.wrapper .mysql:hover .tooltip,
+.wrapper .mysql:hover .tooltip::before {
+  background: #011d71;
+  color: #fff;
+}
+
+.wrapper .postgre:hover,
+.wrapper .postgre:hover .tooltip,
+.wrapper .postgre:hover .tooltip::before {
+  background: #11339b;
+  color: #fff;
+}
+
+.wrapper .git:hover,
+.wrapper .git:hover .tooltip,
+.wrapper .git:hover .tooltip::before {
+  background: #e26600;
+  color: #fff;
+}
+
+.wrapper .terminal:hover,
+.wrapper .terminal:hover .tooltip,
+.wrapper .terminal:hover .tooltip::before {
+  background: #000000;
+  color: #fff;
+}
+
+.wrapper .vercel:hover,
+.wrapper .vercel:hover .tooltip,
+.wrapper .vercel:hover .tooltip::before {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+</style>

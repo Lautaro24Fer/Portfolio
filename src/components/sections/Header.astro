@@ -1,0 +1,58 @@
+---
+
+---
+
+<header class="flex text-white w-ful justify-between items-center z-50">
+  logo
+  <nav>
+    <ul class="flex gap-10 items-center">
+      <li><a href="/#presentation-section">Presentation</a></li>
+      <li><a href="/#proyects-section">My work</a></li>
+      <li><a href="/#formation-section">Formation</a></li>
+      <li><a href="/#habilities-section">Habilitites</a></li>
+      <li
+        class="px-6 py-3 rounded-full bg-white text-black contact-button-shadow font-semibold"
+      >
+        <a href="/#habilities-section">Contact me</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+<script>
+  const headerEl = document.querySelector("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      return headerEl.classList.add("stickyPosition");
+    }
+    if (window.scrollY === 0) {
+      return headerEl.classList.remove("stickyPosition");
+    }
+  });
+</script>
+<style>
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 6rem;
+    transition: all 0.2s ease-in;
+  }
+  header.stickyPosition {
+    position: fixed;
+    background-color: rgba(29, 29, 29, 0.484);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(30px);
+    transition: 0.1s;
+    animation: animateBlur 0.2s linear;
+  }
+  @keyframes animateBlur {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
