@@ -12,9 +12,9 @@ import Footer from "../components/sections/Footer.astro";
 <Layout title="LF | Portfolio">
   <main class="px-24 pb-[20rem] relative pt-5 h-max " id="presentation-section">
     <Header />
-    <section class="w-full flex pt-[8rem] pb-[4rem] sm:justify-center">
-      <section class="md:w-[50%] sm:w-full flex flex-col gap-7" >
-        <h1 class="text-white text-7xl text-left">
+    <section class="w-full flex pt-[8rem] pb-[4rem] justify-center lg:justify-start">
+      <section class="lg:w-[50%] w-full sm:w-full flex flex-col gap-7" >
+        <h1 class="text-white md:text-7xl sm:text-5xl text-[2rem] text-left">
           Lautaro Leonel Fernández - Full Stack Developer
         </h1>
         <p class="text-gray-200">
@@ -40,7 +40,7 @@ import Footer from "../components/sections/Footer.astro";
       id="proyects-section"
     >
     <h2 class="text-4xl font-bold mb-8">My work</h2>
-      <div class="flex gap-8 flex-wrap justify-between">
+      <div class="flex gap-8 flex-wrap md:justify-between justify-center">
         {
           projectsJson.map((item) => {
             return (

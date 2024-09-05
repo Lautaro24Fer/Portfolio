@@ -2,7 +2,7 @@
 import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
 ---
 
-<header class=" text-white z-50 h-[6rem] flex items-center justify-between" >
+<header class=" text-white z-50 h-[6rem] flex items-center justify-between sm:px-[6rem] px-[2rem]"  >
   <TerminalHeaderIcon />
   <div class="hamburguer-btn opacity-100 lg:opacity-0" id="menubtn">
     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H10m10-7H4m16 14H4" color="currentColor"/></svg>
@@ -60,13 +60,17 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       right: -100%;
       top: 0;
       bottom: 0;
-      width: 40%;
+      width: 80%;
+      max-width: 35rem;
       height: 100vh;
       justify-content: center;
       align-items: center;
       background-color: rgba(29, 29, 29);
       transition: all .2s ease-in-out;
       z-index: 500;
+      -webkit-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
+      -moz-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
+      box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
     }
 
     nav.isEnter{
@@ -90,7 +94,6 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
     left: 0;
     width: 100%;
     transition: all 0.2s ease-in;
-    padding: 0 6rem 0 6rem;
   }
   header.stickyPosition {
     position: fixed;
