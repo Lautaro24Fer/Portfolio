@@ -1,43 +1,96 @@
 ---
-
+import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
 ---
 
-<header class="flex text-white w-ful justify-between items-center z-50">
-  logo
-  <nav>
-    <ul class="flex gap-10 items-center">
-      <li><a href="/#presentation-section">Presentation</a></li>
-      <li><a href="/#proyects-section">My work</a></li>
-      <li><a href="/#formation-section">Formation</a></li>
-      <li><a href="/#habilities-section">Habilitites</a></li>
+<header class=" text-white z-50 h-[6rem] flex items-center justify-between" >
+  <TerminalHeaderIcon />
+  <div class="hamburguer-btn opacity-100 lg:opacity-0" id="menubtn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H10m10-7H4m16 14H4" color="currentColor"/></svg>
+  </div>
+  <nav class="flex w-full justify-end"> 
+    <ul class="hamburguer-board" >
+      <li class="itemNavbar"><a href="/#presentation-section">Presentation</a></li>
+      <li class="itemNavbar"><a href="/#proyects-section">My work</a></li>
+      <li class="itemNavbar"><a href="/#formation-section">Formation</a></li>
+      <li class="itemNavbar"><a href="/#habilities-section">Habilitites</a></li>
       <li
-        class="px-6 py-3 rounded-full bg-white text-black contact-button-shadow font-semibold"
+        class="itemNavbar px-6 py-3 rounded-full bg-white text-black contact-button-shadow font-semibold"
       >
         <a href="/#habilities-section">Contact me</a>
       </li>
+      <li class="itemNavbar"><button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn">Close menu</button></li>
     </ul>
   </nav>
 </header>
-<script>
-  const headerEl = document.querySelector("header");
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const headerEl = document.querySelector("header");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      return headerEl.classList.add("stickyPosition");
-    }
-    if (window.scrollY === 0) {
-      return headerEl.classList.remove("stickyPosition");
-    }
-  });
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+        return headerEl?.classList.add("stickyPosition");
+      }
+      if (window.scrollY === 0) {
+        return headerEl?.classList.remove("stickyPosition");
+      }
+    });
+
+    const menuButton = document.querySelector('#menubtn')
+    const optionsBoard = document.querySelector('nav');
+    menuButton.addEventListener('click', () => {
+        optionsBoard?.classList.add('isEnter');
+    });
+    const closeMenuButton = document.querySelector("#close-menu-btn")
+    closeMenuButton.addEventListener('click', () => {
+      optionsBoard?.classList.remove('isEnter');
+    })
+  })
 </script>
 <style>
+  ul.hamburguer-board{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 1024px){
+    nav{
+      position: fixed;
+      right: -100%;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(29, 29, 29);
+      transition: all .2s ease-in-out;
+      z-index: 500;
+    }
+
+    nav.isEnter{
+      right: 0;
+    }
+
+    nav ul{
+      flex-direction: column;
+    }
+  }
+
+  div.hamburguer-btn{
+    width: min-content;
+    height: min-content;
+    border: transparent;
+  }
+
   header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 6rem;
     transition: all 0.2s ease-in;
+    padding: 0 6rem 0 6rem;
   }
   header.stickyPosition {
     position: fixed;
@@ -55,4 +108,64 @@
       transform: translateY(0);
     }
   }
+
+  /* ___ */
+
+  input[type = "checkbox"] {
+  -webkit-appearance: none;
+  display: none;
+  visibility: hidden;
+}
+
+.bar {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+}
+
+.bar span {
+  position: absolute;
+  width: 45px;
+  height: 7px;
+  background: #f1faee;
+  border-radius: 100px;
+  display: inline-block;
+  transition: 0.3s ease;
+  left: 0;
+}
+
+.bar span.top {
+  top: 0;
+}
+
+.bar span.middle {
+  top: 17px;
+}
+
+.bar span.bottom {
+  bottom: 0;
+}
+
+input[type]:checked ~ span.top {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 48px;
+  left: 5px;
+}
+
+input[type]:checked ~ span.bottom {
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  width: 48px;
+  bottom: -1px;
+  box-shadow: 0 0 10px #495057;
+}
+
+input[type]:checked ~ span.middle {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
 </style>

@@ -12,8 +12,8 @@ import Footer from "../components/sections/Footer.astro";
 <Layout title="LF | Portfolio">
   <main class="px-24 pb-[20rem] relative pt-5 h-max " id="presentation-section">
     <Header />
-    <section class="w-full flex pt-[8rem] pb-[4rem]">
-      <section class="w-[50%] flex flex-col gap-7">
+    <section class="w-full flex pt-[8rem] pb-[4rem] sm:justify-center">
+      <section class="md:w-[50%] sm:w-full flex flex-col gap-7" >
         <h1 class="text-white text-7xl text-left">
           Lautaro Leonel Fernández - Full Stack Developer
         </h1>
@@ -25,7 +25,9 @@ import Footer from "../components/sections/Footer.astro";
         </p>
         <section class="flex gap-8 z-10">
           <button id="see-in-gh-btn">
-            See portfolio in GitHub
+            <a href="https://github.com/Lautaro24Fer/Portfolio3" target="_blank">
+              See portfolio in GitHub
+            </a>
           </button>
         </section>
       </section>
