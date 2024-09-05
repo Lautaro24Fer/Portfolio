@@ -1,6 +1,12 @@
 ---
 
 import Layout from "../../layouts/Layout.astro"
+import proyects from "../../util/projects.json"
+import Footer from "../../components/sections/Footer.astro"
+import VercelIcon from "../../icons/VercelIcon.astro";
+import FolderIcon from "../../icons/FolderIcon.astro"
+import ArrowLeft from "../../icons/Arrow-left.astro";
+import ArrowRight from "../../icons/Arrow-right.astro";
 
 export function getStaticPaths() {
   return [
@@ -12,19 +18,105 @@ export function getStaticPaths() {
 }
 
 const { id } = Astro.params;
+
+const last: number = proyects.length - 1;
+const proyect = (proyects.filter(p => p.id == id))[0];
+
+
+
 ---
 
 <Layout title={`LF | proyect ${id}`}>
-    <main class="h-screen">
-      <section transition:name="proyect">
-        Buenos dias familia
-        <a href="/#proyects-section">Volver a la pagina principal</a>
+    <main class="h-min-screen overflow-y-auto flex justify-center pt-[6rem] pb-[20rem]">
+      <button class="fixed bottom-0 right-0 m-[5rem] z-50 bg-slate-800 transition hover:bg-slate-900 h-[3.5rem] w-[3.5rem] rounded-full">
+        <a href="/#proyects-section" class="h-full w-full rounded-full flex justify-center items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M240 424v-96c116.4 0 159.39 33.76 208 96c0-119.23-39.57-240-208-240V88L64 256Z"/></svg>
+        </a>
+      </button>
+      <section transition:name="proyect" class="lg:w-[35rem] flex flex-col gap-[2rem]">
+        <div class="indicator">
+          <span class={`indicator-item badge text-white ${proyect.state === 'Production' ? 'bg-blue-500' : 'bg-red-600'}`}>{proyect.state}</span>
+          <h1 class="font-bold lg:text-7xl text-start">{proyect.name}</h1>
+        </div>
+        <p class="text-gray-200 text-lg">{proyect.description}</p>
+        <p class="text-gray-200">Type: <span class="font-bold text-white">{proyect.type}</span> </p>
+        <div class="containerTech flex gap-[1rem] flex-wrap">
+          {
+            proyect.techStack.map((tech) => (
+              <span>{tech}</span>
+            ))
+          }
+        </div>
+        <div class="w-full h-max-[20rem] relative">
+          <div class="skeleton w-full h-[20rem] absolute top-0" id="skeleton"></div>
+          <img src={proyect.imgPath} alt="proyect-image" class="w-full h-[20rem] object-contain z-20" id="proyectImage" loading="lazy">
+          <button class={`absolute left-[-5rem] top-[-3rem] -translate-y-1/2 ${proyect.id == 1 ? 'hidden' : ''}`}>
+            <a href={proyect.id == 1 ? '#' : `/proyects/${proyect.id - 1}`}>
+              <ArrowLeft />
+            </a>
+          </button>
+          <button class="absolute right-[-5rem] top-[-3rem]  -translate-y-1/2">
+            <a href={proyect.id == 4 ? '#' : `/proyects/${proyect.id + 1}` }>
+              <ArrowRight />
+            </a>
+          </button>
+        </div>
+        <div class="flex gap-[2.5rem] justify-end">
+          <div class="group relative">
+            <button>
+              <a href={proyect.ghRepo} target="_blank">
+                <FolderIcon />
+              </a>
+            </button>
+            <span
+              class="absolute text-gray-600 w-max -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-200 ease-in-out group-hover:scale-100"
+              >Check the code! <span> </span
+            ></span>
+          </div>
+          <div class="group relative">
+            <button>
+              <a href={proyect.productionUrl ?? ''} target={proyect.productionUrl ? '_blank' : '' } class={`${proyect.productionUrl ? 'cursor-pointer' : 'cursor-not-allowed'}`}>
+                <VercelIcon />
+              </a>
+            </button>
+            <span
+              class="absolute text-gray-600 w-max -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-200 ease-in-out group-hover:scale-100"
+              >{ proyect.productionUrl ? 'Check production here!' : 'Production is not available yet.' } <span> </span
+            ></span>
+          </div>
+        </div>
       </section>
+      <Footer />
     </main>
   </Layout>
+
+  <script is:inline>
+    document.addEventListener('astro:page-load', async () => {
+      const imageEl = document.querySelector('#proyectImage');
+      const skeletonEl = document.querySelector('#skeleton');
+
+      if (imageEl.complete) {
+        skeletonEl?.classList.add('hidden');
+        imageEl?.classList.remove('hidden');
+      } else {
+        imageEl.addEventListener('load', async () => {
+          skeletonEl?.classList.add('hidden');
+          imageEl?.classList.remove('hidden');
+        });
+      }
+    });
+  </script>
 
   <style>
     main{
         color: white;
+    }
+    .containerTech span {
+        background-color: #e81cff;
+        padding: 4px 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        border-radius: 50em;
     }
   </style>

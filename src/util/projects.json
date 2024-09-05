@@ -16,7 +16,7 @@
 	{
 		"id": 2,
 		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fwallet-image-min.png?alt=media&token=7fa8f9ec-da64-4dda-83b6-0d21db06867d",
-		"name": "Wallet UI Plataform",
+		"name": "Wallet UI App",
 		"description": "All wallet UI plataform ",
 		"productionUrl": "https://lautaro24fer.github.io/Laboratorio3-Project1",
 		"ghRepo": "https://github.com/Lautaro24Fer/Laboratorio3-Project1",
@@ -49,7 +49,6 @@
 		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fwallet-image-min.png?alt=media&token=7fa8f9ec-da64-4dda-83b6-0d21db06867d",
 		"name": "Padel Point API",
 		"description": "A REST API with C# using ASP and Entity Framework for managing SQL Server. At the time, it was the proposed backend for the Padel Point system, but it was later migrated to technologies like Nest with TypeScript for better production hosting alternatives for both the application and the database. Similar technologies were applied, reaching a point where design patterns like MVC and dependency injection could also be implemented. Swagger was used for endpoint documentation, and it will be updated for future use in projects with these characteristics",
-		"productionUrl": "https://lautaro24fer.github.io/Laboratorio3-Project1",
 		"ghRepo": "https://github.com/Lautaro24Fer/Laboratorio3-Project1",
 		"techStack": [
 			"ASP.Net",
