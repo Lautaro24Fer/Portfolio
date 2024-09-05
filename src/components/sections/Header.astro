@@ -24,6 +24,7 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
 </header>
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
+
     const headerEl = document.querySelector("header");
 
     window.addEventListener("scroll", () => {
@@ -39,6 +40,7 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
     const optionsBoard = document.querySelector('nav');
     menuButton.addEventListener('click', () => {
         optionsBoard?.classList.add('isEnter');
+        
     });
     const closeMenuButton = document.querySelector("#close-menu-btn")
     closeMenuButton.addEventListener('click', () => {
@@ -54,7 +56,7 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
     gap: 2.5rem;
   }
 
-  @media (max-width: 1024px){
+  @media (width < 1024px){
     nav{
       position: fixed;
       right: -100%;
@@ -68,13 +70,13 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       background-color: rgba(29, 29, 29);
       transition: all .2s ease-in-out;
       z-index: 500;
-      -webkit-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
-      -moz-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
-      box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
     }
 
     nav.isEnter{
       right: 0;
+      -webkit-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
+      -moz-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
+      box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
     }
 
     nav ul{
@@ -111,64 +113,5 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       transform: translateY(0);
     }
   }
-
-  /* ___ */
-
-  input[type = "checkbox"] {
-  -webkit-appearance: none;
-  display: none;
-  visibility: hidden;
-}
-
-.bar {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  width: 50px;
-  height: 40px;
-}
-
-.bar span {
-  position: absolute;
-  width: 45px;
-  height: 7px;
-  background: #f1faee;
-  border-radius: 100px;
-  display: inline-block;
-  transition: 0.3s ease;
-  left: 0;
-}
-
-.bar span.top {
-  top: 0;
-}
-
-.bar span.middle {
-  top: 17px;
-}
-
-.bar span.bottom {
-  bottom: 0;
-}
-
-input[type]:checked ~ span.top {
-  transform: rotate(45deg);
-  transform-origin: top left;
-  width: 48px;
-  left: 5px;
-}
-
-input[type]:checked ~ span.bottom {
-  transform: rotate(-45deg);
-  transform-origin: top left;
-  width: 48px;
-  bottom: -1px;
-  box-shadow: 0 0 10px #495057;
-}
-
-input[type]:checked ~ span.middle {
-  transform: translateX(-20px);
-  opacity: 0;
-}
 
 </style>
