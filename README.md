@@ -1,54 +1,63 @@
-# Astro Starter Kit: Basics
+# 🖥️ **Lautaro Fernández** - *Full Stack Developer* 🧉
 
-```sh
-npm create astro@latest -- --template basics
-```
+<div align="center">
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lautaro-fernandez-4205aa243)
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lautaro24fer)
+[![Email](https://img.shields.io/badge/-Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lautarofernandezdev314@gmail.com)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+</div>
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+---
 
-## 🚀 Project Structure
+## 👋 **About Me**
 
-Inside of your Astro project, you'll see the following folders and files:
+👨‍💻 **Lautaro Fernández**, 21 years old, passionate about technology, currently studying at the **National Technological University (UTN)**, pursuing a **University Technician degree in Programming**.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+🎓 I also hold a **Computer Technician** degree, with a strong background in hardware and software.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+🚀 Currently, I work as a **Full Stack Developer** freelancer, with experience in a variety of modern technologies for both frontend and backend development.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+---
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🚀 **Skills**
 
-## 🧞 Commands
+### **Frontend** 🌟
+- **HTML5 & CSS3**
+- **JavaScript (ES6+)**
+- **TypeScript**
+- **Astro**
+- **Next**
+- **Angular**
 
-All commands are run from the root of the project, from a terminal:
+### **Backend** 🔧
+- **Node.js**
+- **NestJS**
+- **ASP .Net**
+-**TypeORM / Entity Framework**
+- **MySQL / PostgreSQL / SQL Server /MongoDB**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### **Other Tools** 🛠️
+- **Git & GitHub**
+- **Docker**
+- **JWT & OAuth**
+- **CPanel**
+- **Vercel**
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🎓 **Education**
+
+- 🎓 **University Technician in Programming** - UTN
+- 🛠️ **Computer Technician** - Instituto Privado Fray Luis Beltrán
+- 👾**Course 'Learn to Program' 2023** - Revolución Digital
+- 🉐**Course 'I Can Program' 2024** - Junior Achievement
+
+---
+
+## 📬 **Contact Me**
+
+📧 **Email**: lautarofernandezdev314@gmail.com  
+📞 **Phone**: +54 336 4214567
+
+Feel free to contact me for freelance development projects or collaborations. I’m always open to new challenges and opportunities to grow as a developer.
