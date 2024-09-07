@@ -1,7 +1,5 @@
 ---
 import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
-import GmailIcon from "../../icons/GmailIcon.astro"
-import WhatsappIcon from "../../icons/WhatsappIcon.astro"
 ---
 
 <header class=" text-white z-50 h-[6rem] flex items-center justify-between sm:px-[6rem] px-[2rem]"  >
@@ -15,38 +13,17 @@ import WhatsappIcon from "../../icons/WhatsappIcon.astro"
       <li class="itemNavbar"><a href="/#proyects-section">My work</a></li>
       <li class="itemNavbar"><a href="/#formation-section">Formation</a></li>
       <li class="itemNavbar"><a href="/#habilities-section">Habilitites</a></li>
-      <li
-        class="itemNavbar px-6 py-3 rounded-full bg-white text-black contact-button  font-semibold"
-      >
-        <button class="contact-me-btn " onclick="my_modal_1.showModal()">Contact me</button>
+      <li class="itemNavbar">
+        <button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn">Close menu</button>
       </li>
-      <li class="itemNavbar"><button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn" >Close menu</button></li>
     </ul>
   </nav>
-  <dialog id="my_modal_1" class="modal">
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Contact me!</h3>
-      <section class="flex flex-col pt-[1rem] gap-[.5rem]">
-        <div class="flex items-center gap-[.5rem]">
-          <GmailIcon /><span>lautarodev314@gmail.com</span>
-        </div>
-        <div class="flex items-center gap-[.5rem]">
-          <WhatsappIcon /><span>+54 336 4214567</span>
-        </div>
-      </section>
-      <div class="modal-action">
-        <form method="dialog">
-          <button class="btn">Close</button>
-        </form>
-      </div>
-    </div>
-  </dialog>
+  
 </header>
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
 
     const headerEl = document.querySelector("header");
-
     window.addEventListener("scroll", () => {
         if (window.scrollY > 100) {
         return headerEl?.classList.add("stickyPosition");
