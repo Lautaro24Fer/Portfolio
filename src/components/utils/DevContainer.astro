@@ -1,0 +1,17 @@
+---
+interface Props{
+    devs: any[];
+}
+
+const { devs } = Astro.props;
+---
+<ul class="flex flex-col gap-[.5rem]">
+	{ devs.map((dev) => (
+		<li class="flex gap-[.4rem]" >
+			<a href={dev.gh} class="hover:underline" target="_blank">
+				<span class="font-bold">{dev.name}</span>
+			</a>
+			<span class="">{dev.role}</span>
+		</li>
+	)) }
+</ul>

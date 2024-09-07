@@ -1,0 +1,17 @@
+---
+import FolderIcon from '../../icons/FolderIcon.astro';
+import VercelIcon from '../../icons/VercelIcon.astro';
+
+interface Props{
+    icon: string
+    href: string
+}
+
+const { icon, href } = Astro.props;
+---
+
+<button>
+    <a href={href} target='_blank' class="cursor-pointer">
+      {icon == 'folder' ? <FolderIcon /> : <VercelIcon />}
+    </a>
+  </button>

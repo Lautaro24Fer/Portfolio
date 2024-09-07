@@ -7,6 +7,8 @@ import VercelIcon from "../../icons/VercelIcon.astro";
 import FolderIcon from "../../icons/FolderIcon.astro"
 import ArrowLeft from "../../icons/Arrow-left.astro";
 import ArrowRight from "../../icons/Arrow-right.astro";
+import LinkCodeButton from "../../components/utils/LinkCodeButton.astro"
+import DevContainer from "../../components/utils/DevContainer.astro";
 
 export function getStaticPaths() {
   return [
@@ -18,27 +20,25 @@ export function getStaticPaths() {
 }
 
 const { id } = Astro.params;
-
-const last: number = proyects.length - 1;
 const proyect = (proyects.filter(p => p.id == id))[0];
-
-
 
 ---
 
-<Layout title={`LF | proyect ${id}`}>
-    <main class="h-min-screen overflow-y-auto flex justify-center pt-[6rem] pb-[20rem]">
-      <button class="fixed bottom-0 right-0 m-[5rem] z-50 bg-slate-800 transition hover:bg-slate-900 h-[3.5rem] w-[3.5rem] rounded-full">
+<Layout title={`LF | ${proyect.name ?? 404}`}>
+    <main class="h-min-screen overflow-y-auto flex justify-center pt-[6rem] pb-[20rem] w-screen overflow-x-hidden" >
+      <button class="fixed bottom-0 right-0 sm:m-[5rem] m-[1rem] z-50 bg-slate-800 transition hover:bg-slate-900 h-[3.5rem] w-[3.5rem] rounded-full">
         <a href="/#proyects-section" class="h-full w-full rounded-full flex justify-center items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M240 424v-96c116.4 0 159.39 33.76 208 96c0-119.23-39.57-240-208-240V88L64 256Z"/></svg>
         </a>
       </button>
-      <section transition:name="proyect" class="lg:w-[35rem] flex flex-col gap-[2rem]">
-        <div class="indicator">
-          <span class={`indicator-item badge text-white ${proyect.state === 'Production' ? 'bg-blue-500' : 'bg-red-600'}`}>{proyect.state}</span>
-          <h1 class="font-bold lg:text-7xl text-start">{proyect.name}</h1>
+      <section transition:name="proyect" class="md:w-[35rem] w-3/4 flex flex-col gap-[2rem]">
+        <div class="w-full relative">
+          <span class={`absolute -top-[1rem] -right-[.5rem] rounded-full px-2 py-1 text-white ${proyect.state === 'Production' ? 'bg-blue-500 ' : 'bg-red-600'}`}>{proyect.state}</span>
+          <h1 class="font-bold sm:text-7xl text-5xl flex-wrap h-max w-full sm:text-start">{proyect.name}</h1>
+          <!-- <h1 class="md:text-7xl text-5xl font-bold">{proyect.name}</h1> -->
         </div>
-        <p class="text-gray-200 text-lg">{proyect.description}</p>
+        { proyect.devs && <DevContainer devs={proyect.devs}/> }
+        <p class="text-gray-200 sm:text-lg text">{proyect.description}</p>
         <p class="text-gray-200">Type: <span class="font-bold text-white">{proyect.type}</span> </p>
         <div class="containerTech flex gap-[1rem] flex-wrap">
           {
@@ -47,38 +47,40 @@ const proyect = (proyects.filter(p => p.id == id))[0];
             ))
           }
         </div>
-        <div class="w-full h-max-[20rem] relative">
+        <div class="w-full h-max-[20rem] relative bg-slate-900 rounded-[1rem]">
           <div class="skeleton w-full h-[20rem] absolute top-0" id="skeleton"></div>
           <img src={proyect.imgPath} alt="proyect-image" class="w-full h-[20rem] object-contain z-20" id="proyectImage" loading="lazy">
-          <button class={`absolute left-[-5rem] top-[-3rem] -translate-y-1/2 ${proyect.id == 1 ? 'hidden' : ''}`}>
+          <button class={`absolute sm:left-[-5rem] left-[-1.5rem] sm:top-[-3rem] top-1/2 sm:bg-transparent -translate-y-1/2 bg-slate-800 rounded-full p-[.7rem] ${proyect.id == 1 ? 'hidden' : ''}`}>
             <a href={proyect.id == 1 ? '#' : `/proyects/${proyect.id - 1}`}>
               <ArrowLeft />
             </a>
           </button>
-          <button class="absolute right-[-5rem] top-[-3rem]  -translate-y-1/2">
-            <a href={proyect.id == 4 ? '#' : `/proyects/${proyect.id + 1}` }>
+          <button class={`absolute sm:right-[-5rem] right-[-1.5rem] sm:top-[-3rem] top-1/2 -translate-y-1/2 sm:bg-transparent bg-slate-800 rounded-full p-[.7rem] ${proyect.id === proyects.length ? 'hidden' : '' }`}>
+            <a href={proyect.id === proyects.length ? '#' : `/proyects/${proyect.id + 1}` }>
               <ArrowRight />
             </a>
           </button>
         </div>
         <div class="flex gap-[2.5rem] justify-end">
           <div class="group relative">
-            <button>
-              <a href={proyect.ghRepo} target="_blank">
-                <FolderIcon />
-              </a>
-            </button>
+            {
+              proyect.ghRepo ? (<LinkCodeButton href={proyect.ghRepo} icon='folder' />) : 
+              (<button class="cursor-not-allowed"> 
+                <FolderIcon /> 
+              </button>)
+            }
             <span
               class="absolute text-gray-600 w-max -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-200 ease-in-out group-hover:scale-100"
-              >Check the code! <span> </span
-            ></span>
+              >{ proyect.ghRepo ? 'Check the code here!' : 'The code is not available.' }
+            </span>
           </div>
           <div class="group relative">
-            <button>
-              <a href={proyect.productionUrl ?? ''} target={proyect.productionUrl ? '_blank' : '' } class={`${proyect.productionUrl ? 'cursor-pointer' : 'cursor-not-allowed'}`}>
-                <VercelIcon />
-              </a>
-            </button>
+            {
+              proyect.productionUrl ? (<LinkCodeButton href={proyect.productionUrl} icon='' />) : //<!-- Cualquier cosa distinto de 'folder' retorna el logo de vercel -->
+              (<button class="cursor-not-allowed"> 
+                <VercelIcon /> 
+              </button>)
+            }
             <span
               class="absolute text-gray-600 w-max -top-10 left-[50%] -translate-x-[50%] z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-200 ease-in-out group-hover:scale-100"
               >{ proyect.productionUrl ? 'Check production here!' : 'Production is not available yet.' } <span> </span

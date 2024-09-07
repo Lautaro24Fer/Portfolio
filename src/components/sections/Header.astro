@@ -1,5 +1,6 @@
 ---
 import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
+import GmailIcon from "../../icons/GmailIcon.astro"
 ---
 
 <header class=" text-white z-50 h-[6rem] flex items-center justify-between sm:px-[6rem] px-[2rem]"  >
@@ -14,13 +15,28 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       <li class="itemNavbar"><a href="/#formation-section">Formation</a></li>
       <li class="itemNavbar"><a href="/#habilities-section">Habilitites</a></li>
       <li
-        class="itemNavbar px-6 py-3 rounded-full bg-white text-black contact-button-shadow font-semibold"
+        class="itemNavbar px-6 py-3 rounded-full bg-white text-black contact-button  font-semibold"
       >
-        <a href="/#habilities-section">Contact me</a>
+        <button class="contact-me-btn " onclick="my_modal_1.showModal()">Contact me</button>
       </li>
-      <li class="itemNavbar"><button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn">Close menu</button></li>
+      <li class="itemNavbar"><button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn" >Close menu</button></li>
     </ul>
   </nav>
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">Contact me!</h3>
+      <section class="flex flex-col pt-[1rem] gap-[.5rem]">
+        <div class="flex items-center gap-[.5rem]">
+          <GmailIcon /><span>lautarodev314@gmail.com</span>
+        </div>
+      </section>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
 </header>
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
@@ -49,6 +65,17 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
   })
 </script>
 <style>
+
+  li.contact-button{
+    transition: all .2s ease-in-out;
+  }
+
+  li.contact-button:hover{
+    -webkit-box-shadow: 0px 2px 10px -3px rgba(228, 228, 228, 0.75);
+  -moz-box-shadow: 0px 2px 10px -3px rgba(228, 228, 228, 0.75);
+  box-shadow: 0px 2px 10px -3px rgba(228, 228, 228, 0.75);
+  }
+
   ul.hamburguer-board{
     position: relative;
     display: flex;

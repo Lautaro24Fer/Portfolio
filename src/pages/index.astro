@@ -10,11 +10,11 @@ import Footer from "../components/sections/Footer.astro";
 ---
 
 <Layout title="LF | Portfolio">
-  <main class="px-24 pb-[20rem] relative pt-5 h-max " id="presentation-section">
+  <main class="sm:px-24 px-[2rem] pb-[20rem] relative sm:pt-5 pt-[1rem] h-max " id="presentation-section">
     <Header />
     <section class="w-full flex pt-[8rem] pb-[4rem] justify-center lg:justify-start">
       <section class="lg:w-[50%] w-full sm:w-full flex flex-col gap-7" >
-        <h1 class="text-white md:text-7xl sm:text-5xl text-[2rem] text-left">
+        <h1 class="text-white md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center">
           Lautaro Leonel Fernández - Full Stack Developer
         </h1>
         <p class="text-gray-200">
@@ -40,7 +40,7 @@ import Footer from "../components/sections/Footer.astro";
       id="proyects-section"
     >
     <h2 class="text-4xl font-bold mb-8">My work</h2>
-      <div class="flex gap-8 flex-wrap md:justify-between justify-center">
+      <div class="flex gap-8 flex-wrap md:justify-around justify-center">
         {
           projectsJson.map((item) => {
             return (
@@ -100,7 +100,7 @@ button#see-in-gh-btn {
   padding: 1rem 1rem 1rem 0;
 }
 
-button:before {
+button#see-in-gh-btn:before {
   background-color: #fff;
   content: "";
   display: inline-block;
@@ -110,7 +110,7 @@ button:before {
   width: 0;
 }
 
-button:hover:before {
+button#see-in-gh-btn:hover:before {
   background-color: #fff;
   width: 3rem;
 }

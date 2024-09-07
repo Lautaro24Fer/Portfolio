@@ -1,20 +1,6 @@
 [
 	{
 		"id": 1,
-		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fx-miniatura-compr.png?alt=media&token=0e02b18b-8734-4ca7-8571-288fce69c37b",
-		"name": "Pricing UI",
-		"description": "UI elements for pricing cards of a streaming platform",
-		"productionUrl": "https://my-x.vercel.app/",
-		"ghRepo": "https://github.com/Lautaro24Fer/Laboratorio3-Project2",
-		"techStack": [
-			"HTML",
-			"CSS"
-		],
-		"state": "Production",
-		"type": "Frontend"
-	},
-	{
-		"id": 2,
 		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fwallet-image-min.png?alt=media&token=7fa8f9ec-da64-4dda-83b6-0d21db06867d",
 		"name": "Wallet UI App",
 		"description": "All wallet UI plataform ",
@@ -26,37 +12,25 @@
 			"Javascript"
 		],
 		"state": "Production",
-		"type": "Frontend"
+		"type": "Frontend",
+		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Frontend dev" }]
 	},
 	{
-		"id": 3,
-		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fwallet-image-min.png?alt=media&token=7fa8f9ec-da64-4dda-83b6-0d21db06867d",
+		"id": 2,
+		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fpadelpoint-landing.png?alt=media&token=4912b173-2316-4112-aaf2-8da9d84e5728",
 		"name": "Padel Point",
 		"description": "A real daily-use e-commerce made for a company dedicated to selling sports-related products, primarily padel rackets. The company is called Padel Point, and we worked as developers on their system for 3 months, handling tasks such as user logins with OAuth, payment gateways with Stripe, email sending with Resend, and other activities.",
-		"productionUrl": "https://lautaro24fer.github.io/Laboratorio3-Project1",
-		"ghRepo": "https://github.com/Lautaro24Fer/Laboratorio3-Project1",
+		"productionUrl": "https://www.padel-point.com.ar",
 		"techStack": [
 			"Next",
+			"Tailwind",
+			"Express",
 			"Nest",
-			"MySQL",
-			"Tailwind"
+			"TypeORM",
+			"MySQL"
 		],
 		"state": "In development",
-		"type": "Fullstack"
-	},
-	{
-		"id": 4,
-		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Fwallet-image-min.png?alt=media&token=7fa8f9ec-da64-4dda-83b6-0d21db06867d",
-		"name": "Padel Point API",
-		"description": "A REST API with C# using ASP and Entity Framework for managing SQL Server. At the time, it was the proposed backend for the Padel Point system, but it was later migrated to technologies like Nest with TypeScript for better production hosting alternatives for both the application and the database. Similar technologies were applied, reaching a point where design patterns like MVC and dependency injection could also be implemented. Swagger was used for endpoint documentation, and it will be updated for future use in projects with these characteristics",
-		"ghRepo": "https://github.com/Lautaro24Fer/Laboratorio3-Project1",
-		"techStack": [
-			"ASP.Net",
-			"Entity Framework",
-			"SQL Server",
-			"C#"
-		],
-		"state": "In development",
-		"type": "Backend"
+		"type": "Fullstack",
+		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Backend dev" }, { "name": "Taiel Filipelli", "gh": "https://github.com/TaiFilipelli", "role": "Frontend dev" }]
 	}
 ]
