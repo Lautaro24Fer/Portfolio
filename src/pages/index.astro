@@ -1,12 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/sections/Header.astro";
-import StatsBoard from "../components/sections/StatsBoard.astro";
-import projectsJson from "../util/projects.json";
-import Card from "../components/utils/Card.astro";
 import Formation from "../components/sections/Formation.astro";
 import Tech from "../components/sections/Tech.astro"
 import Footer from "../components/sections/Footer.astro";
+import Work from "../components/sections/Work.astro";
 ---
 
 <Layout title="LF | Portfolio">
@@ -14,10 +12,11 @@ import Footer from "../components/sections/Footer.astro";
     <Header />
     <section class="w-full flex pt-[8rem] pb-[4rem] justify-center lg:justify-start">
       <section class="lg:w-[50%] w-full sm:w-full flex flex-col gap-7" >
-        <h1 class="text-white md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center">
-          Lautaro Leonel Fernández - Full Stack Developer
+        <h1 class="text-white font-bold md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center">
+          Lautaro Leonel Fernández
         </h1>
-        <p class="text-gray-200">
+        <h2 class="text-white md:text-4xl sm:text-3xl text-[1.5rem] sm:text-left text-center">Full Stack Developer</h2>
+        <p class="text-gray-200 sm:text-left text-center">
           I am a young Argentine who, in recent years, has sought to stand out
           in the web sector with my technical skills, experience in real and
           academic projects, and university education to secure a place in the
@@ -32,32 +31,9 @@ import Footer from "../components/sections/Footer.astro";
         </section>
       </section>
     </section>
-    <StatsBoard />
-    <section
-      class="text-white rounded-xl h-min-72 h-max mt-20 mb-20 relative"
-      transition:name="proyect"
-      transition:animate='fade'
-      id="proyects-section"
-    >
-    <h2 class="text-4xl font-bold mb-8">My work</h2>
-      <div class="flex gap-8 flex-wrap md:justify-around justify-center">
-        {
-          projectsJson.map((item) => {
-            return (
-              <Card
-                title={item.name}
-                type={item.type},
-                technologies={item.techStack},
-                state={item.state},
-                localPath={`/proyects/${item.id}`}
-              />
-            );
-          })
-        }
-      </div>
-    </section>
-    <Formation />
     <Tech />
+    <Work />
+    <Formation />
     <Footer />
   </main>
 </Layout>

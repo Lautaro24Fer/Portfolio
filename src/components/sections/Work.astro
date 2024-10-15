@@ -1,0 +1,54 @@
+---
+import projectsJson from "../../util/projects.json";
+import Card from "../utils/Card.astro";
+---
+
+<section
+      class="text-white rounded-xl h-min-72 h-max pt-[7rem] mb-20 relative revealing-image"
+      transition:name="proyect"
+      transition:animate='fade'
+      id="proyects-section"
+    >
+<h2 class="text-4xl font-bold mb-8">My work</h2>
+	<div class="flex gap-8 flex-wrap md:justify-around justify-center">
+		{
+			projectsJson.map((item) => {
+				return (
+					<Card
+						title={item.name}
+						type={item.type},
+						technologies={item.techStack},
+						state={item.state},
+						localPath={`/proyects/${item.id}`}
+					/>
+				);
+			})
+		}
+	</div>
+</section>
+
+<style>
+	@keyframes reveal {
+	from {
+		opacity: 0;
+		margin-bottom: -10px;
+	}
+	to {
+		opacity: 1;
+		margin-bottom: 0px;
+	}
+}
+
+.revealing-image {
+	/* Create View Timeline */
+	view-timeline-name: --revealing-image;
+	view-timeline-axis: block;
+
+	/* Attach animation, linked to the  View Timeline */
+	animation: linear reveal both;
+	animation-timeline: --revealing-image;
+
+	/* Tweak range when effect should run*/
+	animation-range: entry 25% cover 50%;
+}
+</style>

@@ -10,9 +10,9 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
   <nav class="flex w-full justify-end"> 
     <ul class="hamburguer-board" >
       <li class="itemNavbar"><a href="/#presentation-section">Presentation</a></li>
+      <li class="itemNavbar"><a href="/#habilities-section">Habilitites</a></li>
       <li class="itemNavbar"><a href="/#proyects-section">My work</a></li>
       <li class="itemNavbar"><a href="/#formation-section">Formation</a></li>
-      <li class="itemNavbar"><a href="/#habilities-section">Habilitites</a></li>
       <li class="itemNavbar">
         <button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn">Close menu</button>
       </li>
@@ -46,6 +46,36 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
   })
 </script>
 <style>
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+ul li:focus:after,
+ul li:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+ul li:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
 
   li.contact-button{
     transition: all .2s ease-in-out;
