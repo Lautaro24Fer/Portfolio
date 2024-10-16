@@ -34,7 +34,7 @@ const proyect = (proyects.filter(p => p.id == id))[0];
       <section transition:name="proyect" class="md:w-[35rem] w-3/4 flex flex-col gap-[2rem]">
         <div class="w-full relative">
           <span class={`absolute -top-[1rem] -right-[.5rem] rounded-full px-2 py-1 text-white ${proyect?.state === 'Production' ? 'bg-blue-500 ' : 'bg-red-600'}`}>{proyect?.state}</span>
-          <h1 class="font-bold sm:text-7xl text-5xl flex-wrap h-max w-full sm:text-start">{proyect?.name}</h1>
+          <h1 class="font-bold sm:text-7xl text-5xl flex-wrap h-max w-full sm:text-start glow-text">{proyect?.name}</h1>
           <!-- <h1 class="md:text-7xl text-5xl font-bold">{proyect?.name}</h1> -->
         </div>
         { proyect?.devs && <DevContainer devs={proyect?.devs}/> }
@@ -121,4 +121,12 @@ const proyect = (proyects.filter(p => p.id == id))[0];
         font-size: 12px;
         border-radius: 50em;
     }
+    .glow-text {
+      background: linear-gradient(190deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    
   </style>
