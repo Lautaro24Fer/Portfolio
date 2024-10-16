@@ -93,15 +93,15 @@ const proyect = (proyects.filter(p => p.id == id))[0];
   </Layout>
 
   <script is:inline>
-    document.addEventListener('astro:page-load', async () => {
-      const imageEl = document.querySelector('#proyectImage');
-      const skeletonEl = document.querySelector('#skeleton');
+    document?.addEventListener('astro:page-load', async () => {
+      const imageEl = document?.querySelector('#proyectImage');
+      const skeletonEl = document?.querySelector('#skeleton');
 
-      if (imageEl.complete) {
+      if (imageEl?.complete) {
         skeletonEl?.classList.add('hidden');
         imageEl?.classList.remove('hidden');
       } else {
-        imageEl.addEventListener('load', async () => {
+        imageEl?.addEventListener('load', async () => {
           skeletonEl?.classList.add('hidden');
           imageEl?.classList.remove('hidden');
         });

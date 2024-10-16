@@ -12,7 +12,7 @@ import Work from "../components/sections/Work.astro";
     <Header />
     <section class="w-full flex pt-[8rem] pb-[4rem] justify-center lg:justify-start">
       <section class="lg:w-[50%] w-full sm:w-full flex flex-col gap-7" >
-        <h1 class="text-white font-bold md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center">
+        <h1 class="text-white font-bold md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center glow-text">
           Lautaro Leonel Fernández
         </h1>
         <h2 class="text-white md:text-4xl sm:text-3xl text-[1.5rem] sm:text-left text-center">Full Stack Developer</h2>
@@ -37,6 +37,27 @@ import Work from "../components/sections/Work.astro";
     <Footer />
   </main>
 </Layout>
+<style>
+  .glow-text {
+      background: linear-gradient(190deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .glow-text::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: rgba(255, 255, 255, 0.1);
+      filter: blur(10px);
+      z-index: -1;
+    }
+
+</style>
 <style is:global>
   .background-blur {
     border-radius: 15px;

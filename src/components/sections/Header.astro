@@ -3,7 +3,9 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
 ---
 
 <header class=" text-white z-50 h-[6rem] flex items-center justify-between sm:px-[6rem] px-[2rem]"  >
-  <TerminalHeaderIcon />
+  <a href="/#presentation-section">
+    <TerminalHeaderIcon />
+  </a>
   <div class="hamburguer-btn opacity-100 lg:opacity-0" id="menubtn">
     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H10m10-7H4m16 14H4" color="currentColor"/></svg>
   </div>
@@ -14,16 +16,16 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       <li class="itemNavbar"><a href="/#proyects-section">My work</a></li>
       <li class="itemNavbar"><a href="/#formation-section">Formation</a></li>
       <li class="itemNavbar">
-        <button class="lg:absolute lg:opacity-0 relative opacity-100 underline" id="close-menu-btn">Close menu</button>
+        <button class="lg:absolute lg:opacity-0 relative opacity-100 bg-white text-slate-800 font-bold rounded-full px-3 py-2" id="close-menu-btn">Close menu</button>
       </li>
     </ul>
   </nav>
   
 </header>
 <script is:inline>
-  document.addEventListener('astro:page-load', () => {
+  document?.addEventListener('astro:page-load', () => {
 
-    const headerEl = document.querySelector("header");
+    const headerEl = document?.querySelector("header");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 100) {
         return headerEl?.classList.add("stickyPosition");
@@ -33,16 +35,27 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
       }
     });
 
-    const menuButton = document.querySelector('#menubtn')
-    const optionsBoard = document.querySelector('nav');
-    menuButton.addEventListener('click', () => {
-        optionsBoard?.classList.add('isEnter');
-        
+    const menuButton = document?.querySelector('#menubtn')
+    const optionsBoard = document?.querySelector('nav');
+    menuButton?.addEventListener('click', async () => {
+      headerEl?.classList.remove("stickyPosition");
+      optionsBoard?.classList.add('isEnter');
     });
-    const closeMenuButton = document.querySelector("#close-menu-btn")
-    closeMenuButton.addEventListener('click', () => {
+    const closeMenuButton = document?.querySelector("#close-menu-btn")
+    closeMenuButton?.addEventListener('click', () => {
       optionsBoard?.classList.remove('isEnter');
     })
+
+    const navbarItems = document?.querySelectorAll("nav a")
+    navbarItems?.forEach(a => {
+      a.addEventListener('click', () => {
+        optionsBoard?.classList.remove('isEnter');
+        if (window.scrollY > 100) {
+        return headerEl?.classList.add("stickyPosition");
+        }
+      })
+    })
+
   })
 </script>
 <style>
@@ -96,29 +109,37 @@ ul li:after {
 
   @media (width < 1024px){
     nav{
-      position: fixed;
-      right: -100%;
-      top: 0;
-      bottom: 0;
-      width: 80%;
-      max-width: 35rem;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(29, 29, 29);
-      transition: all .2s ease-in-out;
-      z-index: 500;
+      position: absolute;
+      opacity: 0;
+      z-index: -10;
     }
 
     nav.isEnter{
+      transition: all .3s ease;
+      position: fixed;
+      opacity: 1;
+      z-index: 100;
+      top: 0;
+      left: 0;
       right: 0;
-      -webkit-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
-      -moz-box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
-      box-shadow: -200px 0px 5px 300px rgba(0,0,0,0.39);
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(29, 29, 29, 0.484);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(30px);
+      justify-content: center;
+      align-items: center;
     }
 
     nav ul{
       flex-direction: column;
+    }
+
+    li a{
+      text-transform: capitalize;
+      font-weight: bold;
+      font-size: larger;
     }
   }
 
