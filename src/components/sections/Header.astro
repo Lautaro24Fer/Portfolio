@@ -37,19 +37,27 @@ import TerminalHeaderIcon from "../../icons/TerminalHeaderIcon.astro"
 
     const menuButton = document?.querySelector('#menubtn')
     const optionsBoard = document?.querySelector('nav');
+
     menuButton?.addEventListener('click', async () => {
       headerEl?.classList.remove("stickyPosition");
       optionsBoard?.classList.add('isEnter');
+      document.body.style.overflowY = 'hidden';
+      document.documentElement.style.overflowY = 'hidden'
     });
+
     const closeMenuButton = document?.querySelector("#close-menu-btn")
     closeMenuButton?.addEventListener('click', () => {
       optionsBoard?.classList.remove('isEnter');
+      document.body.style.overflowY = 'auto';
+      document.documentElement.style.overflowY = 'auto'
     })
 
     const navbarItems = document?.querySelectorAll("nav a")
     navbarItems?.forEach(a => {
       a.addEventListener('click', () => {
         optionsBoard?.classList.remove('isEnter');
+        document.body.style.overflowY = 'auto';
+        document.documentElement.style.overflowY = 'auto'
         if (window.scrollY > 100) {
         return headerEl?.classList.add("stickyPosition");
         }
@@ -133,6 +141,8 @@ ul li.itemNavbar:after {
       justify-content: center;
       align-items: center;
     }
+
+    
 
     nav ul{
       flex-direction: column;
