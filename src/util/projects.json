@@ -32,5 +32,42 @@
 		"state": "In development",
 		"type": "Fullstack",
 		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Backend dev" }, { "name": "Taiel Filipelli", "gh": "https://github.com/TaiFilipelli", "role": "Frontend dev" }]
+	},
+	{
+		"id": 3,
+		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2FRetro%20Computer%20Scene.webp?alt=media&token=5e27107b-f2b9-4ee7-8656-17596fe15256",
+		"name": "Ecommerce API Backend",
+		"description": "This backend is a robust and scalable e-commerce platform developed using NestJS, a progressive Node.js framework for building efficient and reliable server-side applications. It leverages TypeORM for seamless interaction with a MySQL database, utilizing the Repository pattern to ensure a clean separation of concerns. The platform integrates OAuth2 for secure authentication, allowing users to log in using third-party providers. Designed with a modular architecture, it exposes a comprehensive set of RESTful APIs, ensuring high performance and maintainability.",
+		"productionUrl": "",
+		"ghRepo": "https://github.com/Lautaro24Fer/ecommerce-nestjs",
+		"techStack": [
+			"NestJS",
+			"Typescript",
+			"Express",
+			"TypeORM",
+			"MySQL"
+		],
+		"state": "In development",
+		"type": "Backend",
+		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Backend dev" }]
+	},
+	{
+		"id": 4,
+		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2FRetro%20Computer%20Scene.webp?alt=media&token=5e27107b-f2b9-4ee7-8656-17596fe15256",
+		"name": "Padel store Backend",
+		"description": "This project is a REST API developed using ASP.NET with C# and Entity Framework, designed for a real-world business specializing in the sale of padel rackets. Although the project was ultimately replaced by a different technology stack, it served as both an academic and professional endeavor. The API was structured to provide robust data management and seamless integration with a MySQL database, leveraging Entity Framework for efficient data operations. The design followed RESTful principles, ensuring clear and consistent communication between client and server. Despite its eventual replacement, the project demonstrated key skills in API development and database management.",
+		"productionUrl": "",
+		"ghRepo": "https://github.com/Lautaro24Fer/PadelBackend",
+		"techStack": [
+			"C#",
+			"ASP",
+			".NET",
+			"Entity Framework",
+			"SQL Server",
+			"Swagger"
+		],
+		"state": "In development",
+		"type": "Backend",
+		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Backend dev" }]
 	}
 ]
