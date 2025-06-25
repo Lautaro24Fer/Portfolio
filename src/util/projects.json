@@ -69,5 +69,22 @@
 		"state": "In development",
 		"type": "Backend",
 		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Backend dev" }]
+	},
+	{
+		"id": 5,
+		"imgPath": "https://firebasestorage.googleapis.com/v0/b/portfolio-images-311f4.appspot.com/o/portfolio%2Fimages%2Frrhh_message_tool.jpg?alt=media&token=332f44c3-c8ca-43e2-9102-1f697a27cce2",
+		"name": "Searching job tool",
+		"description": "RRHH Message Tool is a web application built with React that helps users quickly generate personalized job-related messages. Designed for developers, freelancers, and professionals actively applying to multiple positions, the tool makes it easy to create tailored cover letters, thank-you notes, and first contact messages. It features dynamic templates and options to download messages as .txt files or send them directly via WhatsApp.",
+		"productionUrl": "https://messages-for-rrhh-tool.vercel.app/",
+		"ghRepo": "https://github.com/Lautaro24Fer/messages_for_rrhh_tool",
+		"techStack": [
+			"Typescript",
+			"React",
+			"Node js",
+			"Whatsapp API"	
+		],
+		"state": "Production",
+		"type": "Frontend",
+		"devs": [{ "name": "Lautaro Fernández", "gh": "https://github.com/Lautaro24Fer", "role": "Frontend dev" }]
 	}
 ]
