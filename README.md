@@ -12,11 +12,11 @@
 
 ## 👋 **About Me**
 
-👨‍💻 **Lautaro Fernández**, 21 years old, passionate about technology, currently studying at the **National Technological University (UTN)**, pursuing a **University Technician degree in Programming**.
+👨‍💻 **Lautaro Fernández**, 22 years old, passionate about technology, currently studying at the **National Technological University (UTN)**, pursuing a **University Technician degree in Programming**.
 
 🎓 I also hold a **Computer Technician** degree, with a strong background in hardware and software.
 
-🚀 Currently, I work as a **Full Stack Developer** freelancer, with experience in a variety of modern technologies for both frontend and backend development.
+🚀 Im **Full Stack Developer** freelancer, with experience in a variety of modern technologies for both frontend and backend development. I currently working in Codescript as a backend developer.
 
 ---
 
@@ -38,10 +38,10 @@
 - **MySQL / PostgreSQL / SQL Server /MongoDB**
 
 ### **Other Tools** 🛠️
-- **Git & GitHub**
+- **Git**
 - **Docker**
-- **JWT & OAuth**
-- **CPanel**
+- **Microservices**
+- **Azure DevOps**
 - **Vercel**
 
 ---
@@ -58,6 +58,6 @@
 ## 📬 **Contact Me**
 
 📧 **Email**: lautarofernandezdev314@gmail.com  
-📞 **Phone**: +54 336 4214567
+📞 **Phone**: +54 336 4189021
 
 Feel free to contact me for freelance development projects or collaborations. I’m always open to new challenges and opportunities to grow as a developer.
