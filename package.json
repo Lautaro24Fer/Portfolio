@@ -1,5 +1,8 @@
 {
-  "name": "portfolio_node-18-17-1",
+  "name": "portfolio_node-22-18-0",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "type": "module",
   "version": "0.0.1",
   "scripts": {
