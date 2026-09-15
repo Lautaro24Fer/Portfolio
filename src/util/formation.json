@@ -12,8 +12,8 @@
     "title": "Ecommerce for 'Padel Point'",
     "place": "Argentina",
     "mode": "Remote",
-    "tags": ["Next.js", "Nest.js", "OAuth", "Cloud"],
-    "description": "This is my first experience in a real-world environment. In this case, I was hired by a client to create an e-commerce platform for their sports product business. I developed the backend of a full-stack project while a colleague handled the frontend. We used essential technologies such as Next.js for the client-side and Nest.js for the backend, along with cloud services like OAuth clients, database deployment, and more."
+    "tags": ["Next.js", "Nest", "OAuth", "Cloud"],
+    "description": "This is my first experience in a real-world environment. In this case, I was hired by a client to create an e-commerce platform for their sports product business. I developed the backend of a full-stack project while a colleague handled the frontend. We used essential technologies such as Next.js for the client-side and Nest for the backend, along with cloud services like OAuth clients, database deployment, and more."
   },
   {
     "year": "2025",
@@ -29,14 +29,14 @@
     "place": "Latin America",
     "mode": "Remote",
     "tags": ["DDD", "CQRS", "RabbitMQ", "Azure DevOps"],
-    "description": "My first opportunity to be part of a fully remote company. I worked on the backend, collaborating with a team to build an application for a logistics company in Mexico. We developed an API with a microservices architecture applying Domain-Driven Design and CQRS (Command Query Responsibility Segregation) with Nest.js, WebSockets, RabbitMQ, and OpenTelemetry, following the SCRUM methodology in Azure DevOps."
+    "description": "My first opportunity to be part of a fully remote company. I worked on the backend, collaborating with a team to build an application for a logistics company in Mexico. We developed an API with a microservices architecture applying Domain-Driven Design and CQRS (Command Query Responsibility Segregation) with Nest, WebSockets, RabbitMQ, and OpenTelemetry, following the SCRUM methodology in Azure DevOps."
   },
   {
     "year": "2025 - Current",
     "title": "QUANTIA Ingeniería y Consultoría | Fullstack Developer",
     "place": "Spain",
     "mode": "Remote",
-    "tags": ["React", "Nest.js", "Prisma", "Client work"],
-    "description": "This is the company I currently work for, and where I've spent the longest time in my career so far. I work as a Fullstack Developer across several projects using the React, Nest.js, and Prisma stack, both on projects where I collaborate directly with the client on a daily basis and on internal projects within the organization."
+    "tags": ["React", "Nest", "Prisma", "Client work"],
+    "description": "This is the company I currently work for, and where I've spent the longest time in my career so far. I work as a Fullstack Developer across several projects using the React, Nest, and Prisma stack, both on projects where I collaborate directly with the client on a daily basis and on internal projects within the organization."
   }
 ]
