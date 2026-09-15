@@ -5,18 +5,52 @@ import TimelineItem from "../utils/TimelineItem.astro";
 
 ---
 
-<section id="formation-section" class="pt-[7rem]">
-  <h2 class="text-4xl text-white font-bold">My Formation</h2>
-  <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical pt-8 text-gray-200">
+<section id="formation-section" class="formation-section">
+  <div class="section-heading">
+    <span>Timeline</span>
+    <h2>My Formation</h2>
+  </div>
+  <ul class="formation-list">
     {formation.map((item, index, arr) => (
       <TimelineItem
         year={item.year}
         title={item.title}
+        place={item.place}
+        mode={item.mode}
         description={item.description}
-        isFirst={index === 0}
         isLast={index === arr.length - 1}
-        toStart={index % 2 === 0}
       />
     ))}
   </ul>
 </section>
+
+<style>
+  .formation-section {
+    padding-top: 7rem;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: .35rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading span {
+    color: #14b8a6;
+    font-family: theme('fontFamily.mono');
+    font-size: .78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .section-heading h2 {
+    color: #fff;
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .formation-list {
+    list-style: none;
+  }
+</style>

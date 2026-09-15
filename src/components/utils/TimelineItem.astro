@@ -1,18 +1,144 @@
 ---
-const { year, title, description, isFirst, isLast, toStart } = Astro.props;
+interface Props {
+  year: string;
+  title: string;
+  place: string;
+  mode: string;
+  description: string;
+  isLast: boolean;
+}
+
+const { year, title, place, mode, description, isLast } = Astro.props;
 ---
 
-<li>
-  {isFirst ? null : <hr />}
-  <div class="timeline-middle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5 text-brand">
-      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-    </svg>
+<li class="formation-item">
+  <div class="formation-rail">
+    <span class="formation-dot"></span>
+    {!isLast && <span class="formation-line" aria-hidden="true"></span>}
   </div>
-  <div class={`mb-10 ${toStart ? "timeline-start md:text-end" : "timeline-end md:text-start"}`}>
-    <time class="font-mono italic">{year}</time>
-    <div class="text-lg font-black">{title}</div>
-    {description}
+  <div class="formation-card">
+    <div class="formation-meta">
+      <time class="meta-year">{year}</time>
+      <span class="meta-mode" data-mode={mode}>{mode}</span>
+    </div>
+    <h3 class="formation-title">{title}</h3>
+    <p class="formation-place">
+      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 103 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 002.273 1.765 11.842 11.842 0 00.976.544l.062.029.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clip-rule="evenodd" />
+      </svg>
+      {place}
+    </p>
+    <p class="formation-description">{description}</p>
   </div>
-  {isLast ? null : <hr />}
 </li>
+
+<style>
+  .formation-item {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 1.25rem;
+  }
+
+  .formation-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formation-dot {
+    flex: 0 0 auto;
+    width: .65rem;
+    height: .65rem;
+    margin-top: .4rem;
+    border-radius: 999px;
+    background: theme('colors.brand.to');
+    box-shadow: 0 0 0 4px rgba(232, 28, 255, .15);
+  }
+
+  .formation-line {
+    flex: 1 1 auto;
+    width: 1px;
+    margin-top: .35rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04));
+  }
+
+  .formation-card {
+    padding-bottom: 2.25rem;
+  }
+
+  .formation-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: .5rem;
+  }
+
+  .meta-year {
+    font-family: theme('fontFamily.mono');
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .55);
+  }
+
+  .meta-mode {
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 999px;
+    padding: .15rem .6rem;
+    font-family: theme('fontFamily.mono');
+    font-size: .68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: rgba(255, 255, 255, .75);
+  }
+
+  .meta-mode[data-mode="Remote"] {
+    border-color: rgba(20, 184, 166, .4);
+    background: rgba(20, 184, 166, .1);
+    color: #5eead4;
+  }
+
+  .meta-mode[data-mode="On-site"] {
+    border-color: rgba(245, 158, 11, .4);
+    background: rgba(245, 158, 11, .1);
+    color: #fbbf24;
+  }
+
+  .formation-title {
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: .35rem;
+  }
+
+  .formation-place {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    margin-bottom: .65rem;
+    color: rgba(203, 213, 225, .68);
+    font-size: .82rem;
+  }
+
+  .formation-place svg {
+    width: .9rem;
+    height: .9rem;
+    flex: 0 0 auto;
+  }
+
+  .formation-description {
+    max-width: 42rem;
+    color: rgba(226, 232, 240, .82);
+    font-size: .92rem;
+    line-height: 1.65;
+  }
+
+  @media (width < 640px) {
+    .formation-item {
+      grid-template-columns: 1rem 1fr;
+      gap: .85rem;
+    }
+  }
+</style>
