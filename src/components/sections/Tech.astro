@@ -6,7 +6,6 @@ import Angular from "../../icons/AngularIcon.astro"
 import AstroIcon from "../../icons/AstroIcon.astro"
 import Nest from "../../icons/NestIcon.astro"
 import Asp from "../../icons/AspIcon.astro"
-import Terminal from "../../icons/TerminalIcon.astro"
 import Vercel from "../../icons/VercelIcon.astro"
 import MySqlIcon from "../../icons/MySqlIcon.astro"
 import GitIcon from "../../icons/GitIcon.astro"
@@ -15,79 +14,113 @@ import Tailwind from "../../icons/TailwindIcon.astro"
 import CSharp from "../../icons/CSharp.astro"
 import Wordpress from "../../icons/Wordpress.astro"
 ---
-<div class="w-full flex justify-center pt-[2rem]" id="habilities-section">
-  <h2 class="text-4xl font-bold mt-20 text-white">My tech stack</h2>
-</div>
-<ul class="wrapper">
-  <li class="icon ts">
-    <span class="tooltip">Typescript</span>
-    <Ts />
-  </li>
-  <li class="icon next">
-    <span class="tooltip">Next</span>
-    <Next />
-  </li>
-  <li class="icon tail">
-    <span class="tooltip">Tailwind</span>
-    <Tailwind />
-  </li>
-  <li class="icon angular">
-    <span class="tooltip">Angular</span>
-    <Angular />
-  </li>
-  <li class="icon nest">
-    <span class="tooltip">Nest</span>
-    <Nest />
-  </li>
-  <li class="icon net">
-    <span class="tooltip">.NET</span>
-    <Asp />
-  </li>
-  <li class="icon sharp">
-    <span class="tooltip">C#</span>
-    <CSharp />
-  </li>
-  <li class="icon astro">
-    <span class="tooltip">Astro</span>
-    <AstroIcon />
-  </li>
-  <li class="icon mysql">
-    <span class="tooltip">MySQL</span>
-    <MySqlIcon />
-  </li>
-  <li class="icon js postgre">
-    <span class="tooltip">PostgreSQL</span>
-    <PostgreSql />
-  </li>
-  <li class="icon js git">
-    <span class="tooltip">Git</span>
-    <GitIcon />
-  </li>
-  <li class="icon js vercel">
-    <span class="tooltip">Vercel</span>
-    <Vercel />
-  </li>
-</ul>
+<section class="tech-section" id="habilities-section">
+  <div class="tech-heading">
+    <span>Selected tools</span>
+    <h2>My tech stack</h2>
+  </div>
+  <ul class="wrapper">
+    <li class="icon ts">
+      <span class="tooltip">Typescript</span>
+      <Ts />
+    </li>
+    <li class="icon next">
+      <span class="tooltip">Next</span>
+      <Next />
+    </li>
+    <li class="icon tail">
+      <span class="tooltip">Tailwind</span>
+      <Tailwind />
+    </li>
+    <li class="icon angular">
+      <span class="tooltip">Angular</span>
+      <Angular />
+    </li>
+    <li class="icon nest">
+      <span class="tooltip">Nest</span>
+      <Nest />
+    </li>
+    <li class="icon net">
+      <span class="tooltip">.NET</span>
+      <Asp />
+    </li>
+    <li class="icon sharp">
+      <span class="tooltip">C#</span>
+      <CSharp />
+    </li>
+    <li class="icon astro">
+      <span class="tooltip">Astro</span>
+      <AstroIcon />
+    </li>
+    <li class="icon mysql">
+      <span class="tooltip">MySQL</span>
+      <MySqlIcon />
+    </li>
+    <li class="icon js postgre">
+      <span class="tooltip">PostgreSQL</span>
+      <PostgreSql />
+    </li>
+    <li class="icon js git">
+      <span class="tooltip">Git</span>
+      <GitIcon />
+    </li>
+    <li class="icon js vercel">
+      <span class="tooltip">Vercel</span>
+      <Vercel />
+    </li>
+  </ul>
+</section>
 
 <style>
+.tech-section {
+  display: grid;
+  grid-template-columns: minmax(12rem, .32fr) 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  padding: 1.5rem 0;
+}
+
+.tech-heading {
+  display: grid;
+  gap: .35rem;
+}
+
+.tech-heading span {
+  color: #14b8a6;
+  font-family: theme('fontFamily.mono');
+  font-size: .78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tech-heading h2 {
+  color: #fff;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
 .wrapper {
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
   min-height: max-content;
   width: 100%;
-  padding-top: 40px;
   font-family: "Poppins", sans-serif;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: .55rem;
 }
 
 .wrapper .icon {
   position: relative;
-  background: transparent;
-  border-radius: 50%;
-  margin: 10px;
-  width: 60px;
-  height: 60px;
+  background: rgba(255, 255, 255, .045);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: .65rem;
+  width: 52px;
+  height: 52px;
   font-size: 18px;
   display: grid;
   place-items: center;
@@ -246,6 +279,21 @@ import Wordpress from "../../icons/Wordpress.astro"
 .wrapper .vercel:hover .tooltip::before {
   background: #1e1e1e;
   color: #fff;
+}
+
+@media (width < 768px) {
+  .tech-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tech-heading {
+    text-align: center;
+  }
+
+  .wrapper {
+    justify-content: center;
+  }
 }
 
 </style>

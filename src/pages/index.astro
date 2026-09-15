@@ -10,24 +10,66 @@ import Work from "../components/sections/Work.astro";
 <Layout title="LF | Portfolio">
   <main class="sm:px-24 px-[2rem] pb-[20rem] relative sm:pt-5 pt-[1rem] h-max " id="presentation-section">
     <Header />
-    <section class="w-full flex pt-[9rem] pb-[4rem] justify-center lg:justify-start">
-      <section class="lg:w-[50%] w-full sm:w-full flex flex-col gap-7" >
+    <section class="hero-section">
+      <section class="hero-copy" >
         <h1 class="text-white font-bold md:text-7xl sm:text-5xl text-[3rem] sm:text-left text-center glow-text">
           Lautaro Leonel Fernández
         </h1>
         <h2 class="text-white md:text-4xl sm:text-3xl text-[1.5rem] sm:text-left text-center pt-[1rem] font-bold">Full Stack Developer</h2>
-        <p class="text-gray-200 sm:text-left text-center">
+        <p class="hero-description">
           I am a young Argentine who, in recent years, has sought to stand out
           in the web sector with my technical skills, experience in real and
           academic projects, and university education to secure a place in the
           industry. Always ready to learn and work with the team.
         </p>
-        <section class="flex gap-8 z-10">
-          <a id="see-in-gh-btn" href="https://github.com/Lautaro24Fer/Portfolio" target="_blank" rel="noopener noreferrer">
-            See portfolio in GitHub
+        <ul class="hero-highlights" aria-label="Professional highlights">
+          <li>React / Astro / .NET</li>
+          <li>Academic and real projects</li>
+          <li>Team-ready mindset</li>
+        </ul>
+        <section class="hero-actions">
+          <a class="primary-action" href="/#proyects-section">
+            View work
+          </a>
+          <a class="secondary-action" href="https://github.com/Lautaro24Fer/Portfolio" target="_blank" rel="noopener noreferrer">
+            GitHub
           </a>
         </section>
       </section>
+      <aside class="developer-panel" aria-label="Developer profile summary">
+        <div class="panel-topbar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="panel-body">
+          <p class="panel-command">lautaro@portfolio:~$ status</p>
+          <div class="status-grid">
+            <div>
+              <span>Focus</span>
+              <strong>Full Stack Web</strong>
+            </div>
+            <div>
+              <span>Location</span>
+              <strong>Argentina</strong>
+            </div>
+            <div>
+              <span>Stack</span>
+              <strong>Astro + .NET</strong>
+            </div>
+            <div>
+              <span>Mode</span>
+              <strong>Building</strong>
+            </div>
+          </div>
+          <div class="panel-separator"></div>
+          <div class="build-list">
+            <p><span></span>Frontend interfaces with clean responsive layouts</p>
+            <p><span></span>APIs, database flows, and practical architecture</p>
+            <p><span></span>Project delivery with learning velocity</p>
+          </div>
+        </div>
+      </aside>
     </section>
     <Tech />
     <Work />
@@ -39,35 +81,254 @@ import Work from "../components/sections/Work.astro";
   nav ul li {
     cursor: pointer;
   }
-  /* From Uiverse.io by portseif */
-a#see-in-gh-btn {
-  align-items: center;
-  background-color: transparent;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.5;
-  text-decoration: none;
-  text-transform: uppercase;
-  outline: 0;
-  border: 0;
-  padding: 1rem 1rem 1rem 0;
-}
 
-a#see-in-gh-btn:before {
-  background-color: #fff;
-  content: "";
-  display: inline-block;
-  height: 1px;
-  margin-right: 10px;
-  transition: all .42s cubic-bezier(.25,.8,.25,1);
-  width: 0;
-}
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .72fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    width: 100%;
+    min-height: calc(100vh - 4rem);
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
+  }
 
-a#see-in-gh-btn:hover:before {
-  background-color: #fff;
-  width: 3rem;
-}
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.65rem;
+    width: 100%;
+    max-width: 46rem;
+  }
+
+  .hero-description {
+    max-width: 42rem;
+    color: rgba(226, 232, 240, .86);
+    line-height: 1.75;
+  }
+
+  .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .65rem;
+    list-style: none;
+  }
+
+  .hero-highlights li {
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: .5rem;
+    background: rgba(15, 23, 42, .55);
+    color: rgba(255, 255, 255, .82);
+    font-family: theme('fontFamily.mono');
+    font-size: .82rem;
+    padding: .55rem .75rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .85rem;
+    z-index: 10;
+  }
+
+  .primary-action,
+  .secondary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    border-radius: .5rem;
+    padding: .75rem 1rem;
+    font-size: .95rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform .18s ease, border-color .18s ease, background-color .18s ease;
+  }
+
+  .primary-action {
+    background: linear-gradient(135deg, theme('colors.brand.from'), theme('colors.brand.to'));
+    color: #fff;
+    box-shadow: 0 18px 50px rgba(232, 28, 255, .18);
+  }
+
+  .secondary-action {
+    border: 1px solid rgba(255, 255, 255, .16);
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+  }
+
+  .primary-action:hover,
+  .secondary-action:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondary-action:hover {
+    border-color: rgba(20, 184, 166, .55);
+    background: rgba(20, 184, 166, .1);
+  }
+
+  .developer-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: .75rem;
+    background:
+      linear-gradient(135deg, rgba(20, 184, 166, .14), transparent 34%),
+      linear-gradient(315deg, rgba(245, 158, 11, .1), transparent 38%),
+      rgba(2, 6, 23, .72);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, .34);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .panel-topbar {
+    display: flex;
+    gap: .5rem;
+    padding: .85rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    background: rgba(255, 255, 255, .04);
+  }
+
+  .panel-topbar span {
+    width: .65rem;
+    height: .65rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .32);
+  }
+
+  .panel-topbar span:nth-child(1) {
+    background: #f59e0b;
+  }
+
+  .panel-topbar span:nth-child(2) {
+    background: #14b8a6;
+  }
+
+  .panel-topbar span:nth-child(3) {
+    background: #e81cff;
+  }
+
+  .panel-body {
+    padding: 1.25rem;
+  }
+
+  .panel-command {
+    color: rgba(255, 255, 255, .66);
+    font-family: theme('fontFamily.mono');
+    font-size: .85rem;
+    margin-bottom: 1rem;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+  }
+
+  .status-grid div {
+    min-height: 5rem;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: .5rem;
+    background: rgba(255, 255, 255, .045);
+    padding: .85rem;
+  }
+
+  .status-grid span,
+  .status-grid strong {
+    display: block;
+  }
+
+  .status-grid span {
+    color: rgba(203, 213, 225, .68);
+    font-size: .74rem;
+    text-transform: uppercase;
+  }
+
+  .status-grid strong {
+    margin-top: .4rem;
+    color: #fff;
+    font-size: .95rem;
+    line-height: 1.25;
+  }
+
+  .panel-separator {
+    height: 1px;
+    margin: 1.15rem 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .16), transparent);
+  }
+
+  .build-list {
+    display: grid;
+    gap: .75rem;
+  }
+
+  .build-list p {
+    display: flex;
+    gap: .65rem;
+    align-items: flex-start;
+    color: rgba(226, 232, 240, .82);
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+
+  .build-list span {
+    width: .45rem;
+    height: .45rem;
+    margin-top: .48rem;
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: #14b8a6;
+    box-shadow: 0 0 18px rgba(20, 184, 166, .7);
+  }
+
+  @media (width < 1024px) {
+    .hero-section {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 7rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .developer-panel {
+      max-width: 38rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (width < 640px) {
+    .hero-section {
+      padding-top: 6rem;
+      gap: 2rem;
+    }
+
+    .hero-copy {
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .hero-description {
+      text-align: center;
+      font-size: .95rem;
+    }
+
+    .hero-highlights {
+      justify-content: center;
+    }
+
+    .hero-actions {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .primary-action,
+    .secondary-action {
+      flex: 1 1 8.5rem;
+    }
+
+    .status-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 </style>
