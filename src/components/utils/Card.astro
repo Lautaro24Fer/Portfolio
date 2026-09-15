@@ -73,8 +73,9 @@ const { title, type, technologies, state, localPath } = Astro.props;
 }
 
 .card .categories span {
-  background-color: #e81cff;
+  background: linear-gradient(135deg, theme('colors.brand.from'), theme('colors.brand.to'));
   padding: 4px 8px;
+  font-family: theme('fontFamily.mono');
   font-weight: 600;
   text-transform: uppercase;
   font-size: 12px;

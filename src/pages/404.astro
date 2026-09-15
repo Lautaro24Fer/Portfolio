@@ -1,62 +1,19 @@
 ---
+import Layout from "../layouts/Layout.astro";
 
-const { pathname } = Astro.url
-
+const { pathname } = Astro.url;
 
 let reference = pathname;
 
-if(reference.length > 16){
-    reference = reference.slice(0, 16) + "..."
+if (reference.length > 16) {
+  reference = reference.slice(0, 16) + "...";
 }
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #121212;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background-color: rgb(7, 7, 7);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            color: #acacac;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #8f8f8f;
-        }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Oops! The page {reference} doesn't exist.</p>
-        <p>Let's get you back <a href="/">home</a>.</p>
-    </div>
-</body>
-</html>
-
-
+<Layout title="LF | 404" description="Page not found">
+  <main class="min-h-screen w-full flex flex-col items-center justify-center gap-4 text-center px-4">
+    <h1 class="text-white font-bold text-8xl glow-text">404</h1>
+    <p class="text-gray-200 text-lg">Oops! The page {reference} doesn't exist.</p>
+    <a href="/" class="text-white underline hover:no-underline">Let's get you back home.</a>
+  </main>
+</Layout>

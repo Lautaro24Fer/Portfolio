@@ -1,6 +1,12 @@
 ---
+interface Dev {
+    name: string;
+    gh: string;
+    role: string;
+}
+
 interface Props{
-    devs: any[];
+    devs: Dev[];
 }
 
 const { devs } = Astro.props;

@@ -23,11 +23,9 @@ import Work from "../components/sections/Work.astro";
           industry. Always ready to learn and work with the team.
         </p>
         <section class="flex gap-8 z-10">
-          <button id="see-in-gh-btn">
-            <a href="https://github.com/Lautaro24Fer/Portfolio" target="_blank">
-              See portfolio in GitHub
-            </a>
-          </button>
+          <a id="see-in-gh-btn" href="https://github.com/Lautaro24Fer/Portfolio" target="_blank" rel="noopener noreferrer">
+            See portfolio in GitHub
+          </a>
         </section>
       </section>
     </section>
@@ -37,51 +35,12 @@ import Work from "../components/sections/Work.astro";
     <Footer />
   </main>
 </Layout>
-<style>
-  .glow-text {
-      background: linear-gradient(190deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.5) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
-    }
-
-    .glow-text::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      background: rgba(255, 255, 255, 0.1);
-      filter: blur(10px);
-      z-index: -1;
-    }
-
-</style>
 <style is:global>
-  .background-blur {
-    border-radius: 15px;
-    backdrop-filter: blur(100px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .contact-button-shadow {
-    -webkit-box-shadow: 0px 0px 28px -13px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 28px -13px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 28px -13px rgba(255, 255, 255, 0.75);
-  }
-  .dowloadresume-button-gradient {
-    background: linear-gradient(
-      75deg,
-      rgba(189, 115, 37, 1) 0%,
-      rgba(127, 169, 20, 1) 51%,
-      rgba(20, 169, 150, 1) 94%
-    );
-  }
   nav ul li {
     cursor: pointer;
   }
-  /* From Uiverse.io by portseif */ 
-button#see-in-gh-btn {
+  /* From Uiverse.io by portseif */
+a#see-in-gh-btn {
   align-items: center;
   background-color: transparent;
   color: #fff;
@@ -97,7 +56,7 @@ button#see-in-gh-btn {
   padding: 1rem 1rem 1rem 0;
 }
 
-button#see-in-gh-btn:before {
+a#see-in-gh-btn:before {
   background-color: #fff;
   content: "";
   display: inline-block;
@@ -107,7 +66,7 @@ button#see-in-gh-btn:before {
   width: 0;
 }
 
-button#see-in-gh-btn:hover:before {
+a#see-in-gh-btn:hover:before {
   background-color: #fff;
   width: 3rem;
 }
