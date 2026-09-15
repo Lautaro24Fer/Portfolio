@@ -5,10 +5,11 @@ interface Props {
   place: string;
   mode: string;
   description: string;
+  tags?: string[];
   isLast: boolean;
 }
 
-const { year, title, place, mode, description, isLast } = Astro.props;
+const { year, title, place, mode, description, tags = [], isLast } = Astro.props;
 ---
 
 <li class="formation-item">
@@ -28,6 +29,13 @@ const { year, title, place, mode, description, isLast } = Astro.props;
       </svg>
       {place}
     </p>
+    {tags.length > 0 && (
+      <ul class="formation-tags" aria-label={`${title} technologies`}>
+        {tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+    )}
     <p class="formation-description">{description}</p>
   </div>
 </li>
@@ -63,7 +71,7 @@ const { year, title, place, mode, description, isLast } = Astro.props;
   }
 
   .formation-card {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2.4rem;
   }
 
   .formation-meta {
@@ -117,7 +125,7 @@ const { year, title, place, mode, description, isLast } = Astro.props;
     display: inline-flex;
     align-items: center;
     gap: .35rem;
-    margin-bottom: .65rem;
+    margin-bottom: .75rem;
     color: rgba(203, 213, 225, .68);
     font-size: .82rem;
   }
@@ -126,6 +134,26 @@ const { year, title, place, mode, description, isLast } = Astro.props;
     width: .9rem;
     height: .9rem;
     flex: 0 0 auto;
+  }
+
+  .formation-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem;
+    list-style: none;
+    margin-bottom: .8rem;
+  }
+
+  .formation-tags li {
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: .45rem;
+    background: rgba(255, 255, 255, .045);
+    color: rgba(255, 255, 255, .78);
+    font-family: theme('fontFamily.mono');
+    font-size: .72rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: .42rem .55rem;
   }
 
   .formation-description {

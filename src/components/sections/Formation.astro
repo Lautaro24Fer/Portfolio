@@ -3,30 +3,78 @@
 import formation from "../../util/formation.json";
 import TimelineItem from "../utils/TimelineItem.astro";
 
+const summaryCards = [
+  { value: "5", label: "milestones" },
+  { value: "3", label: "markets" },
+  { value: "Remote", label: "main mode" },
+];
+
+const growthPath = ["Academic base", "Client work", "Freelance", "Consulting"];
 ---
 
 <section id="formation-section" class="formation-section">
-  <div class="section-heading">
-    <span>Timeline</span>
-    <h2>My Formation</h2>
+  <div class="formation-layout">
+    <div class="formation-main">
+      <div class="section-heading">
+        <span>Timeline</span>
+        <h2>My Formation</h2>
+      </div>
+      <ul class="formation-list">
+        {formation.map((item, index, arr) => (
+          <TimelineItem
+            year={item.year}
+            title={item.title}
+            place={item.place}
+            mode={item.mode}
+            tags={item.tags}
+            description={item.description}
+            isLast={index === arr.length - 1}
+          />
+        ))}
+      </ul>
+    </div>
+
+    <aside class="formation-panel" aria-label="Formation summary">
+      <div class="summary-grid">
+        {summaryCards.map((card) => (
+          <div>
+            <strong>{card.value}</strong>
+            <span>{card.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="focus-box">
+        <span>Current focus</span>
+        <p>Backend architecture, clean UI systems, and production workflows.</p>
+      </div>
+
+      <div class="path-box">
+        <span>Growth path</span>
+        <ol>
+          {growthPath.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+    </aside>
   </div>
-  <ul class="formation-list">
-    {formation.map((item, index, arr) => (
-      <TimelineItem
-        year={item.year}
-        title={item.title}
-        place={item.place}
-        mode={item.mode}
-        description={item.description}
-        isLast={index === arr.length - 1}
-      />
-    ))}
-  </ul>
 </section>
 
 <style>
   .formation-section {
     padding-top: 7rem;
+  }
+
+  .formation-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, .42fr);
+    align-items: start;
+    gap: clamp(2rem, 6vw, 5rem);
+  }
+
+  .formation-main {
+    min-width: 0;
   }
 
   .section-heading {
@@ -52,5 +100,153 @@ import TimelineItem from "../utils/TimelineItem.astro";
 
   .formation-list {
     list-style: none;
+  }
+
+  .formation-panel {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-radius: .75rem;
+    background:
+      linear-gradient(145deg, rgba(232, 28, 255, .12), transparent 36%),
+      linear-gradient(315deg, rgba(20, 184, 166, .12), transparent 38%),
+      rgba(2, 6, 23, .68);
+    padding: 1rem;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, .28);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .65rem;
+  }
+
+  .summary-grid div,
+  .focus-box,
+  .path-box {
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: .55rem;
+    background: rgba(255, 255, 255, .045);
+  }
+
+  .summary-grid div {
+    min-height: 5rem;
+    padding: .75rem;
+  }
+
+  .summary-grid strong,
+  .summary-grid span {
+    display: block;
+  }
+
+  .summary-grid strong {
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  .summary-grid span,
+  .focus-box span,
+  .path-box span {
+    color: rgba(203, 213, 225, .7);
+    font-family: theme('fontFamily.mono');
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .summary-grid span {
+    margin-top: .55rem;
+    line-height: 1.35;
+  }
+
+  .focus-box,
+  .path-box {
+    padding: 1rem;
+  }
+
+  .focus-box p {
+    margin-top: .65rem;
+    color: rgba(255, 255, 255, .86);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .path-box ol {
+    position: relative;
+    display: grid;
+    gap: .85rem;
+    list-style: none;
+    margin-top: .9rem;
+  }
+
+  .path-box ol::before {
+    content: "";
+    position: absolute;
+    left: .38rem;
+    top: .35rem;
+    bottom: .35rem;
+    width: 1px;
+    background: linear-gradient(to bottom, #14b8a6, rgba(232, 28, 255, .45));
+  }
+
+  .path-box li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    color: rgba(226, 232, 240, .86);
+    font-size: .92rem;
+    line-height: 1.35;
+  }
+
+  .path-box li::before {
+    content: "";
+    position: relative;
+    z-index: 1;
+    width: .8rem;
+    height: .8rem;
+    flex: 0 0 auto;
+    border: 2px solid rgba(2, 6, 23, .9);
+    border-radius: 999px;
+    background: #14b8a6;
+    box-shadow: 0 0 18px rgba(20, 184, 166, .55);
+  }
+
+  .path-box li:nth-child(even)::before {
+    background: theme('colors.brand.to');
+    box-shadow: 0 0 18px rgba(232, 28, 255, .45);
+  }
+
+  @media (width < 1024px) {
+    .formation-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .formation-panel {
+      position: static;
+      max-width: 42rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  @media (width < 640px) {
+    .formation-section {
+      padding-top: 5rem;
+    }
+
+    .section-heading {
+      text-align: center;
+    }
+
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
